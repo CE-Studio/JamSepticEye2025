@@ -7,6 +7,7 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const GROUNDACCEL = 20.0
 const AIRACCEL = 7.0
+const FORCE = 50
 
 
 static var instance:Player
@@ -112,4 +113,11 @@ func _physics_process(delta: float) -> void:
 	if grab.get_child_count() > 0:
 		grab.get_child(0).position = Vector3.ZERO
 
-	move_and_slide()
+	if move_and_slide():
+		for i in get_slide_collision_count():
+			var col := get_slide_collision(i)
+			var rbody := col.get_collider()
+			if rbody is RigidBody3D:
+				if rbody.is_in_group(&"pushable"):
+					rbody.apply_force(col.get_normal() * -FORCE)
+					
