@@ -5,7 +5,7 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qy3qw"]
 
-[node name="PushBox" type="RigidBody3D"]
+[node name="PushBox" type="RigidBody3D" groups=["Heavy", "Pushable"]]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.75, 0, 0, 0, 2.75, 0, 0, 0, 2.75, 0, 0, 0)
