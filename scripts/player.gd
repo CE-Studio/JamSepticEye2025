@@ -69,8 +69,8 @@ func _input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	body.global_position = global_position
-	if velocity:
-		var movetrack := global_position + velocity
+	var movetrack := global_position + velocity
+	if velocity and not (is_equal_approx(movetrack.x, body.global_position.x) and is_equal_approx(movetrack.z, body.global_position.z)):
 		var rot := body.quaternion
 		body.look_at(movetrack)
 		body.quaternion = rot.slerp(body.quaternion, 8 * delta)
