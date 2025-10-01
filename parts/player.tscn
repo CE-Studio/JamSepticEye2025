@@ -814,7 +814,6 @@ collide_with_areas = true
 libraries = {
 &"": SubResource("AnimationLibrary_nh1j4")
 }
-speed_scale = 5.0
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeBlendSpace1D_nej8a")
