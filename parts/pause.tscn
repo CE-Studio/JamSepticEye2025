@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://pr1y0ym28d45"]
+
+[ext_resource type="Script" uid="uid://x4ut8rbvwkjk" path="res://scripts/pause.gd" id="1_w8mte"]
+
+[node name="Pause" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_w8mte")
