@@ -18,7 +18,8 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var cam:SpringArm3D = $SpringArm3D
 @onready var ray:RayCast3D = $SpringArm3D/Node3D/Camera3D/RayCast3D
 @onready var parent:Node3D = $"../"
-@onready var grab:Node3D = $SpringArm3D/Node3D/Camera3D/grabpoint
+@onready var grab:Node3D = $body/grabpoint
+@onready var body:Node3D = $body
 
 
 func _ready() -> void:
@@ -35,7 +36,9 @@ func _input(event: InputEvent) -> void:
 			cam.rotate_x(event.relative.y / -300)
 			cam.rotation_degrees.x = clampf(cam.rotation_degrees.x, -90, 90)
 	elif event.is_action_pressed("interact"):
+		print("interact")
 		if grab.get_child_count() > 0:
+			print("hold")
 			var obj = grab.get_child(0)
 			var trans = Transform3D(obj.global_transform)
 			grab.remove_child(obj)
@@ -48,6 +51,7 @@ func _input(event: InputEvent) -> void:
 			obj.global_transform = trans
 		elif ray.is_colliding():
 			var obj = ray.get_collider()
+			print(obj)
 			if obj.is_in_group("grab"):
 				obj.get_parent().remove_child(obj)
 				grab.add_child(obj)
@@ -61,6 +65,11 @@ func _input(event: InputEvent) -> void:
 			elif obj.is_in_group("press"):
 				if obj.has_method("press"):
 					obj.press()
+
+
+func _process(delta: float) -> void:
+	body.global_position = global_position
+	body.quaternion = body.quaternion.slerp(quaternion, 10 * delta)
 
 
 func _physics_process(delta: float) -> void:

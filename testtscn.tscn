@@ -1,8 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://cs5us61tonn35"]
+[gd_scene load_steps=8 format=3 uid="uid://cs5us61tonn35"]
 
 [ext_resource type="PackedScene" uid="uid://bbv4l13q3bvuv" path="res://parts/player.tscn" id="1_xeixr"]
+[ext_resource type="Script" uid="uid://x4ut8rbvwkjk" path="res://scripts/pause.gd" id="2_ulxli"]
+[ext_resource type="PackedScene" uid="uid://c544b4prfhipr" path="res://parts/pedestal_button.tscn" id="3_5xbwp"]
+[ext_resource type="PackedScene" uid="uid://cfgxkyqjn84jb" path="res://parts/door.tscn" id="4_ohq57"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xeixr"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_ulxli"]
+sky_material = SubResource("ProceduralSkyMaterial_xeixr")
+
+[sub_resource type="Environment" id="Environment_vw5bx"]
+background_mode = 2
+sky = SubResource("Sky_ulxli")
+tonemap_mode = 2
+glow_enabled = true
 
 [node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vw5bx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 use_collision = true
@@ -13,3 +36,19 @@ size = Vector3(14, 1, 14)
 
 [node name="player" parent="." instance=ExtResource("1_xeixr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8695257, 0)
+
+[node name="Control" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_ulxli")
+
+[node name="pedistalButton" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("3_5xbwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.590663, -9.536743e-07, 3.1312995)
+timeout = 5.0
+connections = [NodePath("../door")]
+
+[node name="door" parent="." instance=ExtResource("4_ohq57")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2887387, 6.084444e-06, 0.39473724)
