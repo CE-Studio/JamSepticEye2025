@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b8wm0hj0pf2ny"
-path="res://.godot/imported/antlines-w.glb-efc221201b06bd2f0eb2b2ce59020e6d.scn"
+uid="uid://kjxgt25tbusk"
+path="res://.godot/imported/antlines-s.glb-9625d0c06805377116f436f4fb839eb0.scn"
 
 [deps]
 
-source_file="res://models/antlines/antlines-w.glb"
-dest_files=["res://.godot/imported/antlines-w.glb-efc221201b06bd2f0eb2b2ce59020e6d.scn"]
+source_file="res://parts/antlines/antlines-s.glb"
+dest_files=["res://.godot/imported/antlines-s.glb-9625d0c06805377116f436f4fb839eb0.scn"]
 
 [params]
 
