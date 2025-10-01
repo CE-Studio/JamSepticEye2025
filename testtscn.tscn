@@ -66,4 +66,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.728064, 0.24393484, 3.4793
 
 [node name="turret" parent="." instance=ExtResource("9_7tw2a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7956085, 0.25686, 4.2774715)
+trackingOther = true
 others = Array[NodePath]([NodePath("../cube")])

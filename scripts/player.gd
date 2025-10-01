@@ -21,6 +21,7 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var parent:Node3D = $"../"
 @onready var grab:Node3D = $body/grabpoint
 @onready var body:Node3D = $body
+@onready var animtree:AnimationTree = $AnimationTree
 
 
 func _ready() -> void:
@@ -77,6 +78,11 @@ func _process(delta: float) -> void:
 		body.quaternion = rot.slerp(body.quaternion, 8 * delta)
 	else:
 		body.quaternion = body.quaternion.slerp(quaternion, 8 * delta)
+	var lvel := Vector3(velocity)
+	lvel.y = 0
+	var blend = lvel.length()
+	blend = remap(clampf(blend, 0, 5), 0, 5, 0, 1)
+	animtree["parameters/blend_position"] = blend
 
 
 func _physics_process(delta: float) -> void:
