@@ -28,8 +28,8 @@ stream_6/stream = ExtResource("10_xc44c")
 stream_7/stream = ExtResource("11_jhr7p")
 
 [node name="cube" type="RigidBody3D" groups=["grab", "heavy"]]
-max_contacts_reported = 5
 contact_monitor = true
+max_contacts_reported = 5
 script = ExtResource("1_xmmcv")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

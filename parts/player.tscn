@@ -36,15 +36,20 @@ script = ExtResource("1_vnk1p")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_4lalg")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="body" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+top_level = true
 mesh = ExtResource("4_redhf")
 surface_material_override/0 = SubResource("StandardMaterial3D_6lfat")
+
+[node name="grabpoint" type="Node3D" parent="body"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.45266724, 0.309902, 0.79563683)
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="."]
 update_mode = 1
 
 [node name="SpringArm3D" type="SpringArm3D" parent="."]
+spring_length = 4.0
 
 [node name="Node3D" type="Node3D" parent="SpringArm3D"]
 
@@ -82,8 +87,5 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_3k433")
 
 [node name="RayCast3D" type="RayCast3D" parent="SpringArm3D/Node3D/Camera3D"]
-target_position = Vector3(0, 0, -1.2)
+target_position = Vector3(0, 0, -6.2)
 collide_with_areas = true
-
-[node name="grabpoint" type="Node3D" parent="SpringArm3D/Node3D/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.2)
