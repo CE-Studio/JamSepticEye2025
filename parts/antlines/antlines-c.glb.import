@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dfk7c5dfekm7b"
-path="res://.godot/imported/antlines-c2.glb-70742cceb41ea2c0554b4df1e1165c2d.scn"
+uid="uid://djv2n746do5j0"
+path="res://.godot/imported/antlines-c.glb-ca28ab875b429496bbb67ad1ab372c67.scn"
 
 [deps]
 
-source_file="res://models/antlines/antlines-c2.glb"
-dest_files=["res://.godot/imported/antlines-c2.glb-70742cceb41ea2c0554b4df1e1165c2d.scn"]
+source_file="res://parts/antlines/antlines-c.glb"
+dest_files=["res://.godot/imported/antlines-c.glb-ca28ab875b429496bbb67ad1ab372c67.scn"]
 
 [params]
 
@@ -37,25 +37,6 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"materials": {
-"@MATERIAL:0": {
-"use_external/enabled": true,
-"use_external/path": "res://textures/mat/antlines/plug.tres"
-},
-"@MATERIAL:1": {
-"use_external/enabled": true,
-"use_external/path": "res://textures/mat/antlines/plug.tres"
-},
-"@MATERIAL:2": {
-"use_external/enabled": true,
-"use_external/path": "res://textures/mat/antlines/off-solid.tres"
-},
-"@MATERIAL:3": {
-"use_external/enabled": true,
-"use_external/path": "res://textures/mat/antlines/off-transp.tres"
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
