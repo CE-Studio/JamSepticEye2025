@@ -1,0 +1,135 @@
+[gd_scene load_steps=6 format=3 uid="uid://dl6dp6qe57607"]
+
+[ext_resource type="PackedScene" uid="uid://bbv4l13q3bvuv" path="res://parts/player.tscn" id="1_ra442"]
+[ext_resource type="PackedScene" uid="uid://pr1y0ym28d45" path="res://parts/pause.tscn" id="2_fiq81"]
+[ext_resource type="PackedScene" uid="uid://deb6pjoy65r7i" path="res://parts/push_box.tscn" id="3_l37oo"]
+[ext_resource type="PackedScene" uid="uid://cgl30y8efitgy" path="res://parts/metal_box.tscn" id="4_fiq81"]
+
+[sub_resource type="Environment" id="Environment_6iamk"]
+background_mode = 1
+background_color = Color(0.22873428, 0.23336053, 0.34147114, 1)
+
+[node name="Level1" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.25, 0)
+size = Vector3(24, 0.5, 16)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 1.75, 9.5)
+size = Vector3(4, 0.5, 5)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.25, 1.5)
+size = Vector3(4, 0.5, 5)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 4, -4.5)
+size = Vector3(1, 8, 7)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 4, 6)
+size = Vector3(1, 8, 4)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 6, 1.5)
+size = Vector3(1, 4, 5)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 4, 10)
+size = Vector3(10, 8, 8)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 4, -7)
+size = Vector3(23, 8, 2)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 4, -0.5)
+size = Vector3(1, 8, 15)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 4, 13.5)
+size = Vector3(1, 8, 3)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 7, 9.5)
+size = Vector3(1, 2, 5)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 4, 14.5)
+size = Vector3(14, 8, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 1, 9.5)
+size = Vector3(13, 2, 9)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 7, 0)
+size = Vector3(6, 2, 12)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 9, 4)
+size = Vector3(23, 2, 20)
+
+[node name="player" parent="." instance=ExtResource("1_ra442")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.387802, 1.1983554, 0.5115409)
+
+[node name="Pause" parent="." instance=ExtResource("2_fiq81")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6iamk")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 5, 0)
+omni_range = 10.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 6, -3)
+omni_range = 10.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 6, 9)
+omni_range = 10.0
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 6, 0)
+omni_range = 10.0
+
+[node name="PushBox" parent="." instance=ExtResource("3_l37oo")]
+transform = Transform3D(0.96388656, 0, -0.26631323, 0, 1, 0, 0.26631323, 0, 0.96388656, -4.746249, 0.50497127, -3.5090833)
+
+[node name="PushBox2" parent="." instance=ExtResource("3_l37oo")]
+transform = Transform3D(0.91310483, 0, 0.40772498, 0, 1, 0, -0.40772498, 0, 0.91310483, -5.863522, 0.50497127, -4.4141135)
+
+[node name="PushBox3" parent="." instance=ExtResource("3_l37oo")]
+transform = Transform3D(-0.10723588, 0, 0.9942336, 0, 1, 0, -0.9942336, 0, -0.10723588, -3.1418188, 0.5049708, -3.553456)
+
+[node name="PushBox4" parent="." instance=ExtResource("3_l37oo")]
+transform = Transform3D(-0.32428068, 0, 0.9459609, 0, 1, 0, -0.9459609, 0, -0.32428068, -1.2497094, 0.504971, -4.656686)
+
+[node name="PushBox6" parent="." instance=ExtResource("3_l37oo")]
+transform = Transform3D(-0.85974526, 0, 0.510723, 0, 1, 0, -0.510723, 0, -0.85974526, 1.7927198, 0.504971, -3.5561848)
+
+[node name="PushBox10" parent="." instance=ExtResource("3_l37oo")]
+transform = Transform3D(0.8733984, 0, 0.48700625, 0, 1, 0, -0.48700625, 0, 0.8733984, -1.4974785, 0.504971, 3.3680887)
+
+[node name="PushBox11" parent="." instance=ExtResource("3_l37oo")]
+transform = Transform3D(0.6821388, 0, -0.7312227, 0, 1, 0, 0.7312227, 0, 0.6821388, 11.685162, 0.504971, -1.8356714)
+
+[node name="PushBox5" parent="." instance=ExtResource("3_l37oo")]
+transform = Transform3D(0.9999573, 0, 0.0092327595, 0, 1, 0, -0.0092327595, 0, 0.9999573, -4.5376725, 0.504971, -4.971955)
+
+[node name="PushBox7" parent="." instance=ExtResource("3_l37oo")]
+transform = Transform3D(-0.4409263, 0, 0.8975432, 0, 1, 0, -0.8975432, 0, -0.4409263, -3.1463141, 0.5049708, -4.8185463)
+
+[node name="PushBox8" parent="." instance=ExtResource("3_l37oo")]
+transform = Transform3D(-0.87432337, 0, 0.48534378, 0, 1, 0, -0.48534378, 0, -0.87432337, -4.826976, 1.5049708, -4.316983)
+
+[node name="PushBox9" parent="." instance=ExtResource("3_l37oo")]
+transform = Transform3D(0.9984005, 0, -0.05653596, 0, 1, 0, 0.05653596, 0, 0.9984005, -3.4028316, 1.5049707, -4.2720675)
+
+[node name="PushBox12" parent="." instance=ExtResource("4_fiq81")]
+transform = Transform3D(0.9839474, 0, 0.17845877, 0, 1, 0, -0.17845877, 0, 0.9839474, 4.240474, 0.5024855, -1.5398294)
