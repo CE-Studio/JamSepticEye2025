@@ -50,7 +50,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 2, -5.5)
 size = Vector3(1, 4, 1)
 
 [node name="player" parent="." instance=ExtResource("1_ksju7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6772957, 10.000002, 0.2542715)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6772957, 1.1983554, 0.2542715)
 
 [node name="Pause" parent="." instance=ExtResource("2_6iamk")]
 
@@ -66,4 +66,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 4, -3)
 omni_range = 10.0
 
 [node name="PushBox" parent="." instance=ExtResource("3_nsrm0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.50015014, 0.504971, -4.334586)
+transform = Transform3D(0.96388656, 0, -0.26631323, 0, 1, 0, 0.26631323, 0, 0.96388656, -0.7955721, 0.504971, -4.4693155)
+
+[node name="PushBox2" parent="." instance=ExtResource("3_nsrm0")]
+transform = Transform3D(0.91310483, 0, 0.40772498, 0, 1, 0, -0.40772498, 0, 0.91310483, 0.66836077, 0.504971, -4.092279)
+
+[node name="PushBox3" parent="." instance=ExtResource("3_nsrm0")]
+transform = Transform3D(-0.10723588, 0, 0.9942336, 0, 1, 0, -0.9942336, 0, -0.10723588, 0.28711885, 0.504971, -5.290106)
+
+[node name="PushBox4" parent="." instance=ExtResource("3_nsrm0")]
+transform = Transform3D(-0.32428068, 0, 0.9459609, 0, 1, 0, -0.9459609, 0, -0.32428068, 3.3986278, 0.504971, -4.459453)
+
+[node name="PushBox6" parent="." instance=ExtResource("3_nsrm0")]
+transform = Transform3D(-0.85974526, 0, 0.510723, 0, 1, 0, -0.510723, 0, -0.85974526, 6.9387183, 0.504971, 2.8090405)
+
+[node name="PushBox5" parent="." instance=ExtResource("3_nsrm0")]
+transform = Transform3D(0.9999573, 0, 0.0092327595, 0, 1, 0, -0.0092327595, 0, 0.9999573, -0.05599904, 1.504971, -4.565145)
