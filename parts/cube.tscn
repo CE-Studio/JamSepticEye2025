@@ -27,7 +27,7 @@ stream_5/stream = ExtResource("9_y4dxd")
 stream_6/stream = ExtResource("10_xc44c")
 stream_7/stream = ExtResource("11_jhr7p")
 
-[node name="cube" type="RigidBody3D" groups=["grab", "heavy"]]
+[node name="cube" type="RigidBody3D" groups=["grab", "heavy", "pushable"]]
 contact_monitor = true
 max_contacts_reported = 5
 script = ExtResource("1_xmmcv")

@@ -26,7 +26,10 @@ stream_5/stream = ExtResource("9_lsq8l")
 stream_6/stream = ExtResource("10_ufd4q")
 stream_7/stream = ExtResource("11_kb6d6")
 
-[node name="PushBox" type="RigidBody3D" groups=["Heavy", "Pushable"]]
+[node name="PushBox" type="RigidBody3D" groups=["heavy", "pushable"]]
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
 script = ExtResource("1_iyxw2")
 metadata/_custom_type_script = "uid://bb6eg7mqw5r7x"
 

@@ -26,7 +26,7 @@ stream_5/stream = ExtResource("9_jqy17")
 stream_6/stream = ExtResource("10_yd1j6")
 stream_7/stream = ExtResource("11_dawoe")
 
-[node name="PushBox" type="RigidBody3D"]
+[node name="MetalBox" type="RigidBody3D" groups=["heavy"]]
 script = ExtResource("1_h05uv")
 metadata/_custom_type_script = "uid://bb6eg7mqw5r7x"
 

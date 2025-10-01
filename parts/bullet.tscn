@@ -23,7 +23,7 @@ height = 0.02
 radius = 0.0186506
 height = 0.15988
 
-[node name="Bullet" type="RigidBody3D"]
+[node name="Bullet" type="RigidBody3D" groups=["pushable"]]
 physics_material_override = SubResource("PhysicsMaterial_5h304")
 angular_damp = 14.131
 

@@ -1,10 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://cs5us61tonn35"]
+[gd_scene load_steps=13 format=3 uid="uid://cs5us61tonn35"]
 
 [ext_resource type="PackedScene" uid="uid://bbv4l13q3bvuv" path="res://parts/player.tscn" id="1_xeixr"]
 [ext_resource type="PackedScene" uid="uid://pr1y0ym28d45" path="res://parts/pause.tscn" id="2_5xbwp"]
 [ext_resource type="PackedScene" uid="uid://c544b4prfhipr" path="res://parts/pedestal_button.tscn" id="3_5xbwp"]
 [ext_resource type="PackedScene" uid="uid://cfgxkyqjn84jb" path="res://parts/door.tscn" id="4_ohq57"]
 [ext_resource type="PackedScene" uid="uid://kjxgt25tbusk" path="res://parts/antlines/antlines-s.glb" id="5_ohq57"]
+[ext_resource type="PackedScene" uid="uid://cgl30y8efitgy" path="res://parts/metal_box.tscn" id="6_o3ocn"]
+[ext_resource type="PackedScene" uid="uid://deb6pjoy65r7i" path="res://parts/push_box.tscn" id="7_7tw2a"]
+[ext_resource type="PackedScene" uid="uid://c482u1ckls2mw" path="res://parts/cube.tscn" id="8_uk40p"]
+[ext_resource type="PackedScene" uid="uid://d3uov4m8hsxs5" path="res://parts/turret.tscn" id="9_7tw2a"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xeixr"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -50,3 +54,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2887387, 6.084444e-06, 0.3
 
 [node name="antlines-s" parent="." instance=ExtResource("5_ohq57")]
 transform = Transform3D(0.25802663, 0, 0.9661378, 0, 1, 0, -0.9661378, 0, 0.25802663, -4.476, 0.0033014007, 2.3676925)
+
+[node name="MetalBox" parent="." instance=ExtResource("6_o3ocn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2386682, 0.50248647, 3.7879193)
+
+[node name="PushBox" parent="." instance=ExtResource("7_7tw2a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39546537, 0.50248647, 3.706809)
+
+[node name="cube" parent="." instance=ExtResource("8_uk40p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.728064, 0.24393484, 3.4793768)
+
+[node name="turret" parent="." instance=ExtResource("9_7tw2a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7956085, 0.25686, 4.2774715)
+others = Array[NodePath]([NodePath("../cube")])
