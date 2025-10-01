@@ -1,0 +1,89 @@
+[gd_scene load_steps=12 format=3 uid="uid://bbv4l13q3bvuv"]
+
+[ext_resource type="Script" uid="uid://bt8y45khvum1b" path="res://scripts/player.gd" id="1_vnk1p"]
+[ext_resource type="ArrayMesh" uid="uid://dpf0hmkksfqx8" path="res://models/human.obj" id="4_redhf"]
+[ext_resource type="Texture2D" uid="uid://bv03no5xxklhx" path="res://textures/player.png" id="5_qrf1d"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4lalg"]
+radius = 0.3
+height = 1.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6lfat"]
+albedo_texture = ExtResource("5_qrf1d")
+
+[sub_resource type="SphereMesh" id="SphereMesh_olu26"]
+radius = 0.005
+height = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0jt38"]
+disable_receive_shadows = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8lgh7"]
+disable_receive_shadows = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jxwcy"]
+disable_receive_shadows = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hb6ck"]
+disable_receive_shadows = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3k433"]
+disable_receive_shadows = true
+
+[node name="player" type="CharacterBody3D" groups=["heavy"]]
+script = ExtResource("1_vnk1p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_4lalg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+mesh = ExtResource("4_redhf")
+surface_material_override/0 = SubResource("StandardMaterial3D_6lfat")
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="."]
+update_mode = 1
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+
+[node name="Node3D" type="Node3D" parent="SpringArm3D"]
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45266718, 0.309902, 0.40436313)
+far = 1000.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpringArm3D/Node3D/Camera3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -0.09)
+mesh = SubResource("SphereMesh_olu26")
+surface_material_override/0 = SubResource("StandardMaterial3D_0jt38")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="SpringArm3D/Node3D/Camera3D/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015, 0, 0)
+mesh = SubResource("SphereMesh_olu26")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_8lgh7")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="SpringArm3D/Node3D/Camera3D/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015, 0, 0)
+mesh = SubResource("SphereMesh_olu26")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_jxwcy")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="SpringArm3D/Node3D/Camera3D/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0150001, 0)
+mesh = SubResource("SphereMesh_olu26")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_hb6ck")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="SpringArm3D/Node3D/Camera3D/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0150001, 0)
+mesh = SubResource("SphereMesh_olu26")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_3k433")
+
+[node name="RayCast3D" type="RayCast3D" parent="SpringArm3D/Node3D/Camera3D"]
+target_position = Vector3(0, 0, -1.2)
+collide_with_areas = true
+
+[node name="grabpoint" type="Node3D" parent="SpringArm3D/Node3D/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.2)
