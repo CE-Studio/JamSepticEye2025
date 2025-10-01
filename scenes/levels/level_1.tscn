@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsilcivtlmmcu"]
+[gd_scene load_steps=6 format=3 uid="uid://bsilcivtlmmcu"]
 
 [ext_resource type="PackedScene" uid="uid://bbv4l13q3bvuv" path="res://parts/player.tscn" id="1_ksju7"]
 [ext_resource type="PackedScene" uid="uid://pr1y0ym28d45" path="res://parts/pause.tscn" id="2_6iamk"]
 [ext_resource type="PackedScene" uid="uid://deb6pjoy65r7i" path="res://parts/push_box.tscn" id="3_nsrm0"]
+[ext_resource type="PackedScene" uid="uid://dps4pqkb56mxr" path="res://scenes/transition_trigger.tscn" id="4_x42e6"]
 
 [sub_resource type="Environment" id="Environment_6iamk"]
 background_mode = 1
@@ -86,3 +87,7 @@ transform = Transform3D(-0.85974526, 0, 0.510723, 0, 1, 0, -0.510723, 0, -0.8597
 
 [node name="PushBox5" parent="." instance=ExtResource("3_nsrm0")]
 transform = Transform3D(0.9999573, 0, 0.0092327595, 0, 1, 0, -0.0092327595, 0, 0.9999573, -0.05599904, 1.504971, -4.565145)
+
+[node name="Node3D" parent="." instance=ExtResource("4_x42e6")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 18.5, 2, -2.5)
+target_scene = "res://scenes/levels/level_2.tscn"
