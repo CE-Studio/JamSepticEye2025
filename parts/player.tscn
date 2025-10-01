@@ -1,15 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bbv4l13q3bvuv"]
+[gd_scene load_steps=10 format=3 uid="uid://bbv4l13q3bvuv"]
 
 [ext_resource type="Script" uid="uid://bt8y45khvum1b" path="res://scripts/player.gd" id="1_vnk1p"]
-[ext_resource type="ArrayMesh" uid="uid://dpf0hmkksfqx8" path="res://models/human.obj" id="4_redhf"]
-[ext_resource type="Texture2D" uid="uid://bv03no5xxklhx" path="res://textures/player.png" id="5_qrf1d"]
+[ext_resource type="PackedScene" uid="uid://cjper3lh65ply" path="res://models/Eggbert.blend" id="2_aaff8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4lalg"]
 radius = 0.3
 height = 1.2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6lfat"]
-albedo_texture = ExtResource("5_qrf1d")
 
 [sub_resource type="SphereMesh" id="SphereMesh_olu26"]
 radius = 0.005
@@ -36,14 +32,15 @@ script = ExtResource("1_vnk1p")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_4lalg")
 
-[node name="body" type="MeshInstance3D" parent="."]
+[node name="body" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 top_level = true
-mesh = ExtResource("4_redhf")
-surface_material_override/0 = SubResource("StandardMaterial3D_6lfat")
 
 [node name="grabpoint" type="Node3D" parent="body"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.45266724, 0.309902, 0.79563683)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.35874045, 0.309902, -0.72335094)
+
+[node name="Eggbert" parent="body" instance=ExtResource("2_aaff8")]
+transform = Transform3D(-0.24, 0, -2.0981467e-08, 0, 0.24, 0, 2.0981467e-08, 0, -0.24, 0, 0.12237102, 0)
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="."]
 update_mode = 1
