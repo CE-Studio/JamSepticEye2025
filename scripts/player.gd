@@ -69,7 +69,13 @@ func _input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	body.global_position = global_position
-	body.quaternion = body.quaternion.slerp(quaternion, 10 * delta)
+	if velocity:
+		var movetrack := global_position + velocity
+		var rot := body.quaternion
+		body.look_at(movetrack)
+		body.quaternion = rot.slerp(body.quaternion, 8 * delta)
+	else:
+		body.quaternion = body.quaternion.slerp(quaternion, 8 * delta)
 
 
 func _physics_process(delta: float) -> void:
