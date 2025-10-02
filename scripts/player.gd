@@ -18,6 +18,8 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var dead:bool = false
 var g_radius:GhostRadius = null
 
+@export var sfx_steps:Array[AudioStreamPlayer3D]
+@export var sfx_crack:AudioStreamPlayer3D
 
 @onready var cam:SpringArm3D = $SpringArm3D
 @onready var ray:RayCast3D = $SpringArm3D/Node3D/Camera3D/RayCast3D
@@ -149,8 +151,14 @@ func _physics_process(delta: float) -> void:
 			revive()
 
 
+func _play_step() -> void:
+	var i:int = randi_range(0, sfx_steps.size() - 1)
+	sfx_steps[i].play()
+
+
 func die() -> void:
 	dead = true
+	sfx_crack.play()
 	g_radius = radius.instantiate()
 	parent.add_child(g_radius)
 	g_radius.position = position

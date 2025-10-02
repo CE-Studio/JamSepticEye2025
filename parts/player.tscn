@@ -1,7 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://bbv4l13q3bvuv"]
+[gd_scene load_steps=24 format=3 uid="uid://bbv4l13q3bvuv"]
 
 [ext_resource type="Script" uid="uid://bt8y45khvum1b" path="res://scripts/player.gd" id="1_vnk1p"]
 [ext_resource type="PackedScene" uid="uid://cjper3lh65ply" path="res://models/Eggbert.blend" id="2_aaff8"]
+[ext_resource type="AudioStream" uid="uid://c5b48fntroaqf" path="res://sound/steps/Step1.ogg" id="3_nh1j4"]
+[ext_resource type="AudioStream" uid="uid://b2yejjsc55w56" path="res://sound/steps/Step2.ogg" id="4_vh72h"]
+[ext_resource type="AudioStream" uid="uid://dyr3dmpsb3klc" path="res://sound/steps/Step3.ogg" id="5_vmdr7"]
+[ext_resource type="AudioStream" uid="uid://k3h40oxfachc" path="res://sound/steps/Step4.ogg" id="6_nej8a"]
+[ext_resource type="AudioStream" uid="uid://bjp8kmk4b4pvy" path="res://sound/Crack.ogg" id="7_48q2l"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4lalg"]
 radius = 0.3
@@ -715,6 +720,23 @@ tracks/23/path = NodePath("body/Eggbert/Armature/Skeleton3D:Foot.R")
 tracks/23/interp = 2
 tracks/23/loop_wrap = true
 tracks/23/keys = PackedFloat32Array(0, 1, -0.017722817, 5.637003e-08, -5.5175615e-09, 0.99984294, 0.25, 1, -0.017722815, 5.6370027e-08, -5.5175615e-09, 0.99984294, 0.5, 1, -0.017722813, 5.6370023e-08, -5.5175606e-09, 0.99984294, 0.75, 1, -0.017722815, 5.6370027e-08, -5.5175615e-09, 0.99984294)
+tracks/24/type = "method"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath(".")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0.25, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_play_step"
+}, {
+"args": [],
+"method": &"_play_step"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nh1j4"]
 _data = {
@@ -741,9 +763,11 @@ blend_point_1/pos = -1.0
 blend_point_2/node = SubResource("AnimationNodeAnimation_vmdr7")
 blend_point_2/pos = 1.0
 
-[node name="player" type="CharacterBody3D" groups=["heavy"]]
+[node name="player" type="CharacterBody3D" node_paths=PackedStringArray("sfx_steps", "sfx_crack") groups=["heavy"]]
 collision_layer = 3
 script = ExtResource("1_vnk1p")
+sfx_steps = [NodePath("AudioGroup/Step1"), NodePath("AudioGroup/Step2"), NodePath("AudioGroup/Step3"), NodePath("AudioGroup/Step4")]
+sfx_crack = NodePath("AudioGroup/Crack")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_4lalg")
@@ -819,5 +843,23 @@ libraries = {
 tree_root = SubResource("AnimationNodeBlendSpace1D_nej8a")
 anim_player = NodePath("../AnimationPlayer")
 parameters/blend_position = 0.0
+
+[node name="AudioGroup" type="Node3D" parent="."]
+
+[node name="Step1" type="AudioStreamPlayer3D" parent="AudioGroup"]
+stream = ExtResource("3_nh1j4")
+
+[node name="Step2" type="AudioStreamPlayer3D" parent="AudioGroup"]
+stream = ExtResource("4_vh72h")
+
+[node name="Step3" type="AudioStreamPlayer3D" parent="AudioGroup"]
+stream = ExtResource("5_vmdr7")
+
+[node name="Step4" type="AudioStreamPlayer3D" parent="AudioGroup"]
+stream = ExtResource("6_nej8a")
+
+[node name="Crack" type="AudioStreamPlayer3D" parent="AudioGroup"]
+stream = ExtResource("7_48q2l")
+volume_db = -4.0
 
 [editable path="body/Eggbert"]
