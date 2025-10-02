@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dl6dp6qe57607"]
+[gd_scene load_steps=8 format=3 uid="uid://dl6dp6qe57607"]
 
 [ext_resource type="PackedScene" uid="uid://bbv4l13q3bvuv" path="res://parts/player.tscn" id="1_ra442"]
 [ext_resource type="PackedScene" uid="uid://pr1y0ym28d45" path="res://parts/pause.tscn" id="2_fiq81"]
 [ext_resource type="PackedScene" uid="uid://bqa6ipcu8tjv3" path="res://scenes/ui.tscn" id="2_l37oo"]
 [ext_resource type="PackedScene" uid="uid://deb6pjoy65r7i" path="res://parts/push_box.tscn" id="3_l37oo"]
 [ext_resource type="PackedScene" uid="uid://cgl30y8efitgy" path="res://parts/metal_box.tscn" id="4_fiq81"]
+[ext_resource type="PackedScene" uid="uid://c483fpshkfy18" path="res://parts/death_plane.tscn" id="4_ibugp"]
 [ext_resource type="Environment" uid="uid://bh0ehhyvsaw3b" path="res://resources/enviro.tres" id="4_qpwj6"]
 
 [node name="Level1" type="Node3D"]
@@ -73,11 +74,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 9, 4)
 size = Vector3(23, 2, 20)
 
 [node name="player" parent="." instance=ExtResource("1_ra442")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.387802, 1.1983554, 0.5115409)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.387802, 0.69835544, 0.5115409)
 
 [node name="UI" parent="." instance=ExtResource("2_l37oo")]
 
 [node name="Pause" parent="." instance=ExtResource("2_fiq81")]
+
+[node name="DeathPlane" parent="." instance=ExtResource("4_ibugp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("4_qpwj6")
