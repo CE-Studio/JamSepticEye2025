@@ -8,12 +8,15 @@ const JUMP_VELOCITY = 4.5
 const GROUNDACCEL = 20.0
 const AIRACCEL = 7.0
 const FORCE = 50
+const FALL_KILL_THRESHOLD:float = -8.5
 
 
 static var instance:Player
 
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+var dead:bool = false
+var g_radius:GhostRadius = null
 
 
 @onready var cam:SpringArm3D = $SpringArm3D
@@ -22,6 +25,7 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var grab:Node3D = $body/grabpoint
 @onready var body:Node3D = $body
 @onready var animtree:AnimationTree = $AnimationTree
+@onready var radius:PackedScene = preload("res://parts/ghost_radius.tscn")
 
 
 func _ready() -> void:
@@ -86,9 +90,12 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	var air_vel:float = 0.0
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+		air_vel = velocity.y
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -126,4 +133,27 @@ func _physics_process(delta: float) -> void:
 			if rbody is RigidBody3D:
 				if rbody.is_in_group(&"pushable"):
 					rbody.apply_force(col.get_normal() * -FORCE)
-					
+	
+	if is_on_floor() and air_vel <= FALL_KILL_THRESHOLD:
+		print("Eggbert hit the ground too hard")
+		die()
+	
+	if dead and g_radius:
+		var r_home:Vector3 = g_radius.position
+		r_home.y = position.y
+		var r_distance:float = position.distance_to(r_home)
+		if r_distance > g_radius.RADIUS:
+			position = position.move_toward(r_home, r_distance - g_radius.RADIUS)
+
+
+func die() -> void:
+	dead = true
+	g_radius = radius.instantiate()
+	parent.add_child(g_radius)
+	g_radius.position = position
+	g_radius.position.y = floori(g_radius.position.y)
+
+
+func revive() -> void:
+	dead = false
+	
