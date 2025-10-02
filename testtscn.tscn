@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cs5us61tonn35"]
+[gd_scene load_steps=14 format=3 uid="uid://cs5us61tonn35"]
 
 [ext_resource type="PackedScene" uid="uid://bbv4l13q3bvuv" path="res://parts/player.tscn" id="1_xeixr"]
 [ext_resource type="PackedScene" uid="uid://pr1y0ym28d45" path="res://parts/pause.tscn" id="2_5xbwp"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://deb6pjoy65r7i" path="res://parts/push_box.tscn" id="7_7tw2a"]
 [ext_resource type="PackedScene" uid="uid://c482u1ckls2mw" path="res://parts/cube.tscn" id="8_uk40p"]
 [ext_resource type="PackedScene" uid="uid://d3uov4m8hsxs5" path="res://parts/turret.tscn" id="9_7tw2a"]
+[ext_resource type="PackedScene" uid="uid://cufeu3a328pa5" path="res://parts/dropper.tscn" id="10_uk40p"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xeixr"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -47,7 +48,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8695257, 0)
 [node name="pedistalButton" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("3_5xbwp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4937963, -9.536743e-07, 2.8935921)
 timeout = 5.0
-connections = [NodePath("../door"), NodePath("../antlines-s")]
+connections = [NodePath("../door"), NodePath("../antlines-s"), NodePath("../dropper")]
 
 [node name="door" parent="." instance=ExtResource("4_ohq57")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2887387, 6.084444e-06, 0.39473724)
@@ -66,4 +67,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.728064, 0.24393484, 3.4793
 
 [node name="turret" parent="." instance=ExtResource("9_7tw2a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7956085, 0.25686, 4.2774715)
+trackingOther = true
 others = Array[NodePath]([NodePath("../cube")])
+
+[node name="dropper" parent="." instance=ExtResource("10_uk40p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4223075, 2.0121207, -0.5837083)
+threshold = null
