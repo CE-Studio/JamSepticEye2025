@@ -15,6 +15,7 @@ static var first_spawn:bool = true
 func _ready() -> void:
 	anim.play("Spawn")
 	first_spawn = false
+	rotate(Vector3.UP, randf_range(-PI, PI))
 
 
 func _process(delta: float) -> void:
