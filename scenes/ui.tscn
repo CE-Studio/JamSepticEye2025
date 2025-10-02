@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqa6ipcu8tjv3"]
+
+[ext_resource type="Script" uid="uid://dmit5vv0s0hgi" path="res://scripts/ui.gd" id="1_nt7q6"]
+[ext_resource type="PackedScene" uid="uid://b24ti2bs5nsor" path="res://scenes/transition_handler.tscn" id="2_x4jx1"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nt7q6")
+
+[node name="TransitionHandler" parent="." instance=ExtResource("2_x4jx1")]
+layout_mode = 1

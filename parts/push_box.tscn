@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://deb6pjoy65r7i"]
+[gd_scene load_steps=15 format=3 uid="uid://deb6pjoy65r7i"]
 
 [ext_resource type="ArrayMesh" uid="uid://kudf8v2tu7o5" path="res://models/box.obj" id="1_eovd7"]
 [ext_resource type="Script" uid="uid://bb6eg7mqw5r7x" path="res://scripts/cube.gd" id="1_iyxw2"]
@@ -11,6 +11,9 @@
 [ext_resource type="AudioStream" uid="uid://28jvlt1cok48" path="res://sound/physics/cardboard/card5.wav" id="9_lsq8l"]
 [ext_resource type="AudioStream" uid="uid://dg75i8llxts2n" path="res://sound/physics/cardboard/card6.wav" id="10_ufd4q"]
 [ext_resource type="AudioStream" uid="uid://geobiplqnqmo" path="res://sound/physics/cardboard/card7.wav" id="11_kb6d6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_iyxw2"]
+friction = 0.4
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qy3qw"]
 
@@ -30,6 +33,7 @@ stream_7/stream = ExtResource("11_kb6d6")
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
+physics_material_override = SubResource("PhysicsMaterial_iyxw2")
 script = ExtResource("1_iyxw2")
 metadata/_custom_type_script = "uid://bb6eg7mqw5r7x"
 

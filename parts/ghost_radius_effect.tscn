@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cedgl3vs1qvhj"]
+
+[ext_resource type="Shader" uid="uid://bqrbg55fe6nq1" path="res://resources/ghost_radius.tres" id="1_68ddy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tsrtt"]
+render_priority = 0
+shader = ExtResource("1_68ddy")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_r8g0e"]
+material = SubResource("ShaderMaterial_tsrtt")
+top_radius = 4.8
+bottom_radius = 5.0
+height = 4.0
+rings = 1
+cap_top = false
+cap_bottom = false
+
+[node name="GhostRadiusEffect" type="Node3D"]
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CylinderMesh_r8g0e")

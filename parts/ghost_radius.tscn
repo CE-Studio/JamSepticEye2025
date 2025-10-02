@@ -1,0 +1,173 @@
+[gd_scene load_steps=8 format=3 uid="uid://p5rlwdw6n72h"]
+
+[ext_resource type="Script" uid="uid://ca6e5r1id62p6" path="res://scripts/ghost_radius.gd" id="1_7wdcx"]
+[ext_resource type="PackedScene" uid="uid://cedgl3vs1qvhj" path="res://parts/ghost_radius_effect.tscn" id="1_c25m2"]
+[ext_resource type="PackedScene" uid="uid://cvncyi5phd8h0" path="res://models/Eggshell.blend" id="3_4pp1b"]
+
+[sub_resource type="Animation" id="Animation_uve1m"]
+resource_name = "Despawn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EffectOuter:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.70000005),
+"transitions": PackedFloat32Array(3, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -4, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EffectInner:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.70000005),
+"transitions": PackedFloat32Array(3, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -4, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_free_self"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_4pp1b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EffectOuter:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EffectInner:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EffectOuter:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EffectInner:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7wdcx"]
+resource_name = "Spawn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EffectOuter:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector3(0.01, 0.01, 0.01), Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EffectInner:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(0.3, 1),
+"update": 0,
+"values": [Vector3(0.01, 0.01, 0.01), Vector3(1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EffectOuter:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.70000005),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector3(0, -3, 0), Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EffectInner:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.90000004),
+"transitions": PackedFloat32Array(0.3, 1),
+"update": 0,
+"values": [Vector3(0, -3, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uve1m"]
+_data = {
+&"Despawn": SubResource("Animation_uve1m"),
+&"RESET": SubResource("Animation_4pp1b"),
+&"Spawn": SubResource("Animation_7wdcx")
+}
+
+[node name="GhostRadius" type="Node3D"]
+script = ExtResource("1_7wdcx")
+
+[node name="EffectOuter" parent="." instance=ExtResource("1_c25m2")]
+
+[node name="EffectInner" parent="." instance=ExtResource("1_c25m2")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_uve1m")
+}
+
+[node name="Eggshell" parent="." instance=ExtResource("3_4pp1b")]
+transform = Transform3D(-0.12500001, -0.21650635, 0, 0.21650635, -0.12500001, 0, 0, 0, 0.25, -0.7, 0.3, 0)
+
+[node name="Eggshell2" parent="." instance=ExtResource("3_4pp1b")]
+transform = Transform3D(-0.12500001, 0.21650635, 0, -0.21650635, -0.12500001, 0, 0, 0, 0.25, 0.7, 0.3, 0)

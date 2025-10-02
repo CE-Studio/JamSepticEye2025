@@ -1,10 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dps4pqkb56mxr"]
+[gd_scene load_steps=5 format=3 uid="uid://dps4pqkb56mxr"]
 
 [ext_resource type="Script" uid="uid://da7jbbxu6pg5h" path="res://scripts/transition_trigger.gd" id="1_r2imo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l8obr"]
 
-[node name="Node3D" type="Area3D"]
+[sub_resource type="BoxMesh" id="BoxMesh_r2imo"]
+flip_faces = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3um08"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="TransitionTrigger" type="Area3D"]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_r2imo")
@@ -12,5 +19,9 @@ script = ExtResource("1_r2imo")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_l8obr")
 debug_color = Color(0, 0.6901961, 0.43137255, 0.5921569)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_r2imo")
+surface_material_override/0 = SubResource("StandardMaterial3D_3um08")
 
 [connection signal="body_entered" from="." to="." method="_on_player_enter"]
