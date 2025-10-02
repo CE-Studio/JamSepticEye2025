@@ -144,6 +144,9 @@ func _physics_process(delta: float) -> void:
 		var r_distance:float = position.distance_to(r_home)
 		if r_distance > g_radius.RADIUS:
 			position = position.move_toward(r_home, r_distance - g_radius.RADIUS)
+		
+		if Input.is_action_just_pressed("revive"):
+			revive()
 
 
 func die() -> void:
@@ -156,4 +159,9 @@ func die() -> void:
 
 func revive() -> void:
 	dead = false
-	
+	position = Vector3(
+		g_radius.position.x,
+		position.y,
+		g_radius.position.z
+	)
+	g_radius.despawn()

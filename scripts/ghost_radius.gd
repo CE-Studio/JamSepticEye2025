@@ -20,3 +20,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	outer.rotate(Vector3.UP, ROTATE_SPEED * delta)
 	inner.rotate(Vector3.UP, ROTATE_SPEED * delta * -1.5)
+
+
+func despawn():
+	anim.play("Despawn")
+
+
+func _free_self() -> void:
+	queue_free()
