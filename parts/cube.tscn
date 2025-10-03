@@ -45,4 +45,7 @@ shape = SubResource("BoxShape3D_fwayl")
 stream = SubResource("AudioStreamRandomizer_n8r0u")
 volume_db = -38.0952
 
+[node name="RayCast3D" type="RayCast3D" parent="."]
+enabled = false
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

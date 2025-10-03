@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dt6qu1fhqc4xi"]
+
+[ext_resource type="Shader" uid="uid://bwosm0cqjr142" path="res://textures/mat/explosion_shade.tres" id="1_07jmx"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_07jmx")
