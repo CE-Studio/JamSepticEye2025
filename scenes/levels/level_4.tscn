@@ -128,26 +128,32 @@ environment = ExtResource("5_4wsov")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 5, 4)
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 5, -4)
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 5, 4)
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 5, -4)
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 5, 4)
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 5, -4)
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="Spikes" parent="." instance=ExtResource("7_hsvsk")]

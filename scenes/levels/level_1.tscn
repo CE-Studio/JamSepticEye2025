@@ -69,10 +69,12 @@ environment = ExtResource("4_sk5k4")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 4, -3)
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="PushBox" parent="." instance=ExtResource("3_nsrm0")]

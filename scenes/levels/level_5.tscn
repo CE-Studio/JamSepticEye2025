@@ -97,25 +97,44 @@ environment = ExtResource("8_h717f")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4, 4)
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4, -4)
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4, 4)
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4, -4)
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="Glass" parent="." instance=ExtResource("7_gruok")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.5, 0.5, -2)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.1999998, 0, -2)
 
 [node name="Glass2" parent="." instance=ExtResource("7_gruok")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.5, 0.5, 0)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.1999998, 0, 0)
+
+[node name="Glass3" parent="." instance=ExtResource("7_gruok")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.1999998, 2, 0)
+
+[node name="Glass4" parent="." instance=ExtResource("7_gruok")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.1999998, 2, -2)
+
+[node name="Glass5" parent="." instance=ExtResource("7_gruok")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.1999998, 2, -4)
+
+[node name="Glass6" parent="." instance=ExtResource("7_gruok")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.1999998, 2, -6)
+
+[node name="Glass7" parent="." instance=ExtResource("7_gruok")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.1999998, 2, -8)
 
 [node name="MetalBox" parent="." instance=ExtResource("6_0y7y4")]
 transform = Transform3D(0.9836784, 0, 0.17993544, 0, 1, 0, -0.17993544, 0, 0.9836784, -6.993705, 0.5024853, -6.797762)
