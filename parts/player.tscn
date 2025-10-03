@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bbv4l13q3bvuv"]
+[gd_scene load_steps=26 format=3 uid="uid://bbv4l13q3bvuv"]
 
 [ext_resource type="Script" uid="uid://bt8y45khvum1b" path="res://scripts/player.gd" id="1_vnk1p"]
 [ext_resource type="PackedScene" uid="uid://cjper3lh65ply" path="res://models/Eggbert.blend" id="2_aaff8"]
@@ -763,15 +763,23 @@ blend_point_1/pos = -1.0
 blend_point_2/node = SubResource("AnimationNodeAnimation_vmdr7")
 blend_point_2/pos = 1.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_vh72h"]
+random_pitch = 1.5
+streams_count = 4
+stream_0/stream = ExtResource("3_nh1j4")
+stream_1/stream = ExtResource("4_vh72h")
+stream_2/stream = ExtResource("5_vmdr7")
+stream_3/stream = ExtResource("6_nej8a")
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vh72h"]
 radius = 0.4
 height = 1.2
 
-[node name="player" type="CharacterBody3D" node_paths=PackedStringArray("sfx_steps", "sfx_crack") groups=["heavy"]]
+[node name="player" type="CharacterBody3D" node_paths=PackedStringArray("sfx_step", "sfx_crack") groups=["heavy"]]
 collision_layer = 3
 collision_mask = 9
 script = ExtResource("1_vnk1p")
-sfx_steps = [NodePath("AudioGroup/Step1"), NodePath("AudioGroup/Step2"), NodePath("AudioGroup/Step3"), NodePath("AudioGroup/Step4")]
+sfx_step = NodePath("AudioGroup/Step")
 sfx_crack = NodePath("AudioGroup/Crack")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -851,17 +859,8 @@ parameters/blend_position = 0.0
 
 [node name="AudioGroup" type="Node3D" parent="."]
 
-[node name="Step1" type="AudioStreamPlayer3D" parent="AudioGroup"]
-stream = ExtResource("3_nh1j4")
-
-[node name="Step2" type="AudioStreamPlayer3D" parent="AudioGroup"]
-stream = ExtResource("4_vh72h")
-
-[node name="Step3" type="AudioStreamPlayer3D" parent="AudioGroup"]
-stream = ExtResource("5_vmdr7")
-
-[node name="Step4" type="AudioStreamPlayer3D" parent="AudioGroup"]
-stream = ExtResource("6_nej8a")
+[node name="Step" type="AudioStreamPlayer3D" parent="AudioGroup"]
+stream = SubResource("AudioStreamRandomizer_vh72h")
 
 [node name="Crack" type="AudioStreamPlayer3D" parent="AudioGroup"]
 stream = ExtResource("7_48q2l")

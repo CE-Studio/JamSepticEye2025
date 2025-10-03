@@ -147,4 +147,3 @@ target_scene = "res://scenes/levels/level_3.tscn"
 [node name="CtrlPopup" parent="." instance=ExtResource("9_3p04p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, -2)
 texture = "res://textures/CtrlPopups/Look.png"
-delay = 2.0
