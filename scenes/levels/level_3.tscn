@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsn78t75hfxqx"]
+[gd_scene load_steps=8 format=3 uid="uid://dsn78t75hfxqx"]
 
 [ext_resource type="PackedScene" uid="uid://bbv4l13q3bvuv" path="res://parts/player.tscn" id="1_fmg3e"]
 [ext_resource type="PackedScene" uid="uid://bqa6ipcu8tjv3" path="res://scenes/ui.tscn" id="2_ftfob"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c483fpshkfy18" path="res://parts/death_plane.tscn" id="4_ugcn1"]
 [ext_resource type="Environment" uid="uid://bh0ehhyvsaw3b" path="res://resources/enviro.tres" id="5_pimnq"]
 [ext_resource type="PackedScene" uid="uid://deb6pjoy65r7i" path="res://parts/push_box.tscn" id="6_ftfob"]
+[ext_resource type="PackedScene" uid="uid://dyxjjj0tf8rci" path="res://parts/spikes.tscn" id="7_fkk1g"]
 
 [node name="Level3" type="Node3D"]
 
@@ -128,3 +129,9 @@ transform = Transform3D(-0.1888383, 0, -0.9820082, 0, 1, 0, 0.9820082, 0, -0.188
 
 [node name="PushBox8" parent="." instance=ExtResource("6_ftfob")]
 transform = Transform3D(0.9995904, 0, 0.028619468, 0, 1, 0, -0.028619468, 0, 0.9995904, 16.5266, 0.50497127, -5.755428)
+
+[node name="Spikes" parent="." instance=ExtResource("7_fkk1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -1)
+
+[node name="Spikes2" parent="." instance=ExtResource("7_fkk1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -2.5)

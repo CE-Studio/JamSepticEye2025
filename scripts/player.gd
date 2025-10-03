@@ -9,6 +9,7 @@ const GROUNDACCEL = 20.0
 const AIRACCEL = 7.0
 const FORCE = 50
 const FALL_KILL_THRESHOLD:float = -8.5
+const I_TIME:float = 1.25
 
 
 static var instance:Player
@@ -17,6 +18,8 @@ static var instance:Player
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var dead:bool = false
 var g_radius:GhostRadius = null
+var i_time:float = 0.0
+var hazard_collisions:int = 0
 
 @export var sfx_steps:Array[AudioStreamPlayer3D]
 @export var sfx_crack:AudioStreamPlayer3D
@@ -149,6 +152,15 @@ func _physics_process(delta: float) -> void:
 		
 		if Input.is_action_just_pressed("revive"):
 			revive()
+	
+	if i_time > 0.0:
+		i_time -= delta
+		if i_time <= 0.0:
+			visible = true
+		else:
+			visible = not visible
+	if not dead and hazard_collisions > 0 and i_time <= 0.0:
+		die()
 
 
 func _play_step() -> void:
@@ -173,3 +185,12 @@ func revive() -> void:
 		g_radius.position.z
 	)
 	g_radius.despawn()
+	i_time = I_TIME
+
+
+func _on_hazard_enter(_body:Node3D) -> void:
+	hazard_collisions += 1
+
+
+func _on_hazard_exit(_body:Node3D) -> void:
+	hazard_collisions -= 1
