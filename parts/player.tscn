@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bbv4l13q3bvuv"]
+[gd_scene load_steps=25 format=3 uid="uid://bbv4l13q3bvuv"]
 
 [ext_resource type="Script" uid="uid://bt8y45khvum1b" path="res://scripts/player.gd" id="1_vnk1p"]
 [ext_resource type="PackedScene" uid="uid://cjper3lh65ply" path="res://models/Eggbert.blend" id="2_aaff8"]
@@ -763,6 +763,10 @@ blend_point_1/pos = -1.0
 blend_point_2/node = SubResource("AnimationNodeAnimation_vmdr7")
 blend_point_2/pos = 1.0
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vh72h"]
+radius = 0.4
+height = 1.2
+
 [node name="player" type="CharacterBody3D" node_paths=PackedStringArray("sfx_steps", "sfx_crack") groups=["heavy"]]
 collision_layer = 3
 script = ExtResource("1_vnk1p")
@@ -861,5 +865,15 @@ stream = ExtResource("6_nej8a")
 [node name="Crack" type="AudioStreamPlayer3D" parent="AudioGroup"]
 stream = ExtResource("7_48q2l")
 volume_db = -4.0
+
+[node name="HazardBox" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HazardBox"]
+shape = SubResource("CapsuleShape3D_vh72h")
+
+[connection signal="area_entered" from="HazardBox" to="." method="_on_hazard_enter"]
+[connection signal="area_exited" from="HazardBox" to="." method="_on_hazard_exit"]
 
 [editable path="body/Eggbert"]
