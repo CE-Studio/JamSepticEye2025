@@ -97,14 +97,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39546537, 0.50248647, 3.706
 [node name="cube" parent="." instance=ExtResource("8_uk40p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.728064, 0.24393484, 3.4793768)
 
+[node name="cube2" parent="." instance=ExtResource("8_uk40p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2275505, 0.3186371, -1.4589353)
+
+[node name="cube3" parent="." instance=ExtResource("8_uk40p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9315565, 2.422347, -0.64091694)
+
 [node name="turret" parent="." instance=ExtResource("9_7tw2a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7956085, 0.25686, 4.2774715)
 trackingOther = true
 others = Array[NodePath]([NodePath("../cube")])
 
-[node name="dropper" parent="." instance=ExtResource("10_uk40p")]
+[node name="dropper" parent="." node_paths=PackedStringArray("slot1", "slot2") instance=ExtResource("10_uk40p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4223075, 2.0121207, -0.5837083)
-threshold = null
+slot1 = NodePath("../cube2")
+slot2 = NodePath("../cube3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -7)

@@ -1,0 +1,71 @@
+[gd_resource type="VisualShader" load_steps=8 format=3 uid="uid://bwosm0cqjr142"]
+
+[sub_resource type="Gradient" id="Gradient_08cl3"]
+offsets = PackedFloat32Array(0, 0.5588235)
+colors = PackedColorArray(0, 0, 0, 1, 0.86396617, 0.45092154, 1.92523e-07, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_oobmc"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_51kts"]
+noise = SubResource("FastNoiseLite_oobmc")
+color_ramp = SubResource("Gradient_08cl3")
+seamless = true
+seamless_blend_skirt = 0.366
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_dvm71"]
+texture = SubResource("NoiseTexture2D_51kts")
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_h1y4f"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_5n83j"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_mdmsl"]
+input_name = "time"
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D tex_frg_2 : source_color;
+
+
+
+void fragment() {
+// Input:3
+	vec2 n_out3p0 = UV;
+
+
+// Input:7
+	float n_out7p0 = TIME;
+
+
+// VectorOp:6
+	vec2 n_out6p0 = n_out3p0 + vec2(n_out7p0);
+
+
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, n_out6p0);
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+	ALPHA = n_out2p0.x;
+	EMISSION = vec3(n_out2p0.xyz);
+
+
+}
+"
+nodes/fragment/0/position = Vector2(2380, 560)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_dvm71")
+nodes/fragment/2/position = Vector2(1500, 560)
+nodes/fragment/3/node = SubResource("VisualShaderNodeInput_h1y4f")
+nodes/fragment/3/position = Vector2(700, 500)
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_5n83j")
+nodes/fragment/6/position = Vector2(1260, 580)
+nodes/fragment/7/node = SubResource("VisualShaderNodeInput_mdmsl")
+nodes/fragment/7/position = Vector2(700, 680)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 3, 0, 6, 0, 7, 0, 6, 1, 6, 0, 2, 0, 2, 0, 0, 1, 2, 0, 0, 5)
