@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bth11eyecp5bi"]
+[gd_scene load_steps=17 format=3 uid="uid://bth11eyecp5bi"]
 
 [ext_resource type="PackedScene" uid="uid://bbv4l13q3bvuv" path="res://parts/player.tscn" id="1_tqnj0"]
 [ext_resource type="PackedScene" uid="uid://bqa6ipcu8tjv3" path="res://scenes/ui.tscn" id="2_dwyms"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://dh7bl3woycvkc" path="res://parts/cube_button.tscn" id="8_dwyms"]
 [ext_resource type="Environment" uid="uid://bh0ehhyvsaw3b" path="res://resources/enviro.tres" id="8_h717f"]
 [ext_resource type="PackedScene" uid="uid://cfgxkyqjn84jb" path="res://parts/door.tscn" id="9_6xwso"]
-[ext_resource type="PackedScene" uid="uid://dyxjjj0tf8rci" path="res://parts/spikes.tscn" id="9_l8eod"]
 [ext_resource type="PackedScene" uid="uid://dfk7c5dfekm7b" path="res://parts/antlines/antlines-c2.glb" id="10_5ke18"]
 [ext_resource type="PackedScene" uid="uid://06mqlf4bidrk" path="res://parts/ctrl_popup.tscn" id="10_sfnul"]
 [ext_resource type="PackedScene" uid="uid://dibtcct4v7ako" path="res://parts/antlines/antlines-s2.glb" id="11_j14br"]
@@ -185,6 +184,3 @@ transform = Transform3D(4.371139e-08, -1, 3.821371e-15, -1, -4.371139e-08, -8.74
 
 [node name="antlines-s3" parent="." instance=ExtResource("12_6xwso")]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 10.9, 1.5, 1)
-
-[node name="Spikes" parent="." instance=ExtResource("9_l8eod")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.07348, 0, -0.093622684)
