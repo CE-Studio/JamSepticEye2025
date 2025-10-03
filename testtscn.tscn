@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://cs5us61tonn35"]
+[gd_scene load_steps=25 format=3 uid="uid://cs5us61tonn35"]
 
+[ext_resource type="Texture2D" uid="uid://dbi54kp40n6bo" path="res://textures/floor.png" id="1_kurlb"]
 [ext_resource type="PackedScene" uid="uid://bbv4l13q3bvuv" path="res://parts/player.tscn" id="1_xeixr"]
 [ext_resource type="PackedScene" uid="uid://pr1y0ym28d45" path="res://parts/pause.tscn" id="2_5xbwp"]
 [ext_resource type="PackedScene" uid="uid://c544b4prfhipr" path="res://parts/pedestal_button.tscn" id="3_5xbwp"]
@@ -10,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://c482u1ckls2mw" path="res://parts/cube.tscn" id="8_uk40p"]
 [ext_resource type="PackedScene" uid="uid://d3uov4m8hsxs5" path="res://parts/turret.tscn" id="9_7tw2a"]
 [ext_resource type="PackedScene" uid="uid://cufeu3a328pa5" path="res://parts/dropper.tscn" id="10_uk40p"]
+[ext_resource type="Texture2D" uid="uid://deeast68vvmy" path="res://textures/wall2.png" id="12_wldm3"]
+[ext_resource type="Texture2D" uid="uid://b7grx0m6qtpbe" path="res://textures/wall1.png" id="13_ooo0y"]
+[ext_resource type="Texture2D" uid="uid://dktcc1nqg6met" path="res://textures/osb.svg" id="14_ooo0y"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xeixr"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -24,6 +28,33 @@ sky = SubResource("Sky_ulxli")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7oa7i"]
+albedo_texture = ExtResource("1_kurlb")
+uv1_scale = Vector3(4.015, 4.015, 4.015)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbpk2"]
+albedo_texture = ExtResource("12_wldm3")
+uv1_scale = Vector3(10, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ssbpw"]
+size = Vector2(10, 1)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bf647"]
+albedo_texture = ExtResource("13_ooo0y")
+uv1_scale = Vector3(10, 9, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_l6gyu"]
+size = Vector2(10, 9)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ssbpw"]
+albedo_texture = ExtResource("14_ooo0y")
+uv1_scale = Vector3(5, 5, 5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bf647"]
+size = Vector2(10, 10)
+
 [node name="Node3D" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -34,6 +65,7 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+material_override = SubResource("StandardMaterial3D_7oa7i")
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
@@ -73,3 +105,18 @@ others = Array[NodePath]([NodePath("../cube")])
 [node name="dropper" parent="." instance=ExtResource("10_uk40p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4223075, 2.0121207, -0.5837083)
 threshold = null
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -7)
+material_override = SubResource("StandardMaterial3D_pbpk2")
+mesh = SubResource("PlaneMesh_ssbpw")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, -7)
+material_override = SubResource("StandardMaterial3D_bf647")
+mesh = SubResource("PlaneMesh_l6gyu")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 5.5, -2)
+material_override = SubResource("StandardMaterial3D_ssbpw")
+mesh = SubResource("PlaneMesh_bf647")
