@@ -3,7 +3,7 @@ extends Node3D
 
 
 const ROTATE_SPEED:float = deg_to_rad(20.0)
-const RADIUS:float = 4.75
+const RADIUS:float = 7.75
 
 static var first_spawn:bool = true
 

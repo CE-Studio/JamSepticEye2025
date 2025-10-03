@@ -8,8 +8,8 @@ shader = ExtResource("1_68ddy")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_r8g0e"]
 material = SubResource("ShaderMaterial_tsrtt")
-top_radius = 4.8
-bottom_radius = 5.0
+top_radius = 7.8
+bottom_radius = 8.0
 height = 4.0
 rings = 1
 cap_top = false

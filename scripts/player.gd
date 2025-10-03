@@ -11,15 +11,14 @@ const FORCE = 50
 const FALL_KILL_THRESHOLD:float = -8.5
 const I_TIME:float = 1.25
 
-
 static var instance:Player
-
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var dead:bool = false
 var g_radius:GhostRadius = null
 var i_time:float = 0.0
 var hazard_collisions:int = 0
+var die_y:float = 0.0
 
 @export var sfx_steps:Array[AudioStreamPlayer3D]
 @export var sfx_crack:AudioStreamPlayer3D
@@ -92,6 +91,9 @@ func _process(delta: float) -> void:
 	var blend = lvel.length()
 	blend = remap(clampf(blend, 0, 5), 0, 5, 0, 1)
 	animtree["parameters/blend_position"] = blend
+	
+	if Input.is_action_just_pressed("restart"):
+		get_tree().reload_current_scene.call_deferred()
 
 
 func _physics_process(delta: float) -> void:
@@ -170,22 +172,25 @@ func _play_step() -> void:
 
 func die() -> void:
 	dead = true
+	die_y = position.y
 	sfx_crack.play()
 	g_radius = radius.instantiate()
 	parent.add_child(g_radius)
 	g_radius.position = position
 	g_radius.position.y = floori(g_radius.position.y)
+	collision_mask -= 8
 
 
 func revive() -> void:
 	dead = false
 	position = Vector3(
 		g_radius.position.x,
-		position.y,
+		die_y,
 		g_radius.position.z
 	)
 	g_radius.despawn()
 	i_time = I_TIME
+	collision_mask += 8
 
 
 func _on_hazard_enter(_body:Node3D) -> void:
