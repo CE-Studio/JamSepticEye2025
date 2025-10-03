@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsilcivtlmmcu"]
+[gd_scene load_steps=9 format=3 uid="uid://bsilcivtlmmcu"]
 
 [ext_resource type="PackedScene" uid="uid://bbv4l13q3bvuv" path="res://parts/player.tscn" id="1_ksju7"]
 [ext_resource type="PackedScene" uid="uid://pr1y0ym28d45" path="res://parts/pause.tscn" id="2_6iamk"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c483fpshkfy18" path="res://parts/death_plane.tscn" id="4_oc4kc"]
 [ext_resource type="Environment" uid="uid://bh0ehhyvsaw3b" path="res://resources/enviro.tres" id="4_sk5k4"]
 [ext_resource type="PackedScene" uid="uid://dps4pqkb56mxr" path="res://scenes/transition_trigger.tscn" id="4_x42e6"]
+[ext_resource type="PackedScene" uid="uid://06mqlf4bidrk" path="res://parts/ctrl_popup.tscn" id="8_s8va5"]
 
 [node name="Level1" type="Node3D"]
 
@@ -95,3 +96,8 @@ transform = Transform3D(0.9999573, 0, 0.0092327595, 0, 1, 0, -0.0092327595, 0, 0
 [node name="TransitionTrigger" parent="." instance=ExtResource("4_x42e6")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 18.5, 2, -2.5)
 target_scene = "res://scenes/levels/level_2.tscn"
+
+[node name="CtrlPopup" parent="." instance=ExtResource("8_s8va5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+texture = "res://textures/CtrlPopups/Move.png"
+delay = 1.0

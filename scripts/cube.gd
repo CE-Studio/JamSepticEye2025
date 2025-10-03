@@ -6,5 +6,5 @@ class_name  Cube
 @onready var aud := $AudioStreamPlayer3D
 
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	aud.play()

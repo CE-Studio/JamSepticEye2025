@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckl870yxt64ac"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r0610"]
+transparency = 1
+albedo_color = Color(0.6666667, 1, 1, 0.4392157)
+metallic = 0.5
+refraction_scale = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_d7ohs"]
+material = SubResource("StandardMaterial3D_r0610")
+size = Vector3(2, 2, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hipv6"]
+size = Vector3(2, 2, 0.2)
+
+[node name="Glass" type="StaticBody3D"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_d7ohs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_hipv6")

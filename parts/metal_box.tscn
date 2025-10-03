@@ -27,6 +27,12 @@ stream_6/stream = ExtResource("10_yd1j6")
 stream_7/stream = ExtResource("11_dawoe")
 
 [node name="MetalBox" type="RigidBody3D" groups=["heavy"]]
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
 script = ExtResource("1_h05uv")
 metadata/_custom_type_script = "uid://bb6eg7mqw5r7x"
 

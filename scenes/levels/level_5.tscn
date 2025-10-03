@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://bth11eyecp5bi"]
+
+[ext_resource type="PackedScene" uid="uid://bbv4l13q3bvuv" path="res://parts/player.tscn" id="1_tqnj0"]
+[ext_resource type="PackedScene" uid="uid://bqa6ipcu8tjv3" path="res://scenes/ui.tscn" id="2_dwyms"]
+[ext_resource type="PackedScene" uid="uid://pr1y0ym28d45" path="res://parts/pause.tscn" id="3_6xwso"]
+[ext_resource type="PackedScene" uid="uid://c483fpshkfy18" path="res://parts/death_plane.tscn" id="4_5ke18"]
+[ext_resource type="Environment" uid="uid://bh0ehhyvsaw3b" path="res://resources/enviro.tres" id="8_h717f"]
+
+[node name="Level5" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -0.25, 0)
+size = Vector3(32, 0.5, 16)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.25, -3.5)
+size = Vector3(4, 0.5, 5)
+
+[node name="player" parent="." instance=ExtResource("1_tqnj0")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.387802, 0.6983557, 3.511541)
+
+[node name="UI" parent="." instance=ExtResource("2_dwyms")]
+
+[node name="Pause" parent="." instance=ExtResource("3_6xwso")]
+
+[node name="DeathPlane" parent="." instance=ExtResource("4_5ke18")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("8_h717f")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 5, 4)
+omni_range = 10.0
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 5, -4)
+omni_range = 10.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 5, 4)
+omni_range = 10.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 5, -4)
+omni_range = 10.0
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 5, 4)
+omni_range = 10.0
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 5, -4)
+omni_range = 10.0

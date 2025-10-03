@@ -9,7 +9,7 @@
 [ext_resource type="Material" uid="uid://cdg6s84dxoo23" path="res://textures/mat/orangeplastic.tres" id="7_npdyp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bxfh6"]
-size = Vector3(0.157451, 0.0859428, 0.163971)
+size = Vector3(0.7751465, 0.0859428, 0.74902344)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ybhvd"]
 resource_name = "Material"
