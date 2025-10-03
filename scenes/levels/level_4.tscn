@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dfdiwov0mtumr"]
+[gd_scene load_steps=12 format=3 uid="uid://dfdiwov0mtumr"]
 
 [ext_resource type="PackedScene" uid="uid://bbv4l13q3bvuv" path="res://parts/player.tscn" id="1_5vn0v"]
 [ext_resource type="PackedScene" uid="uid://dfvjtjlv63mkd" path="res://parts/push_box_2x4.tscn" id="1_ts8eg"]
@@ -10,6 +10,7 @@
 [ext_resource type="Environment" uid="uid://bh0ehhyvsaw3b" path="res://resources/enviro.tres" id="5_4wsov"]
 [ext_resource type="PackedScene" uid="uid://dyxjjj0tf8rci" path="res://parts/spikes.tscn" id="7_hsvsk"]
 [ext_resource type="PackedScene" uid="uid://06mqlf4bidrk" path="res://parts/ctrl_popup.tscn" id="10_glw47"]
+[ext_resource type="PackedScene" uid="uid://dps4pqkb56mxr" path="res://scenes/transition_trigger.tscn" id="11_4wsov"]
 
 [node name="Level4" type="Node3D"]
 
@@ -21,8 +22,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -0.25, 0)
 size = Vector3(32, 0.5, 16)
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 6.25, 0)
-size = Vector3(32, 0.5, 16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 6.25, 0.5)
+size = Vector3(32, 0.5, 17)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.25, 3.5)
@@ -171,3 +172,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2, -2.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 texture = "res://textures/CtrlPopups/Restart.png"
 delay = 1.0
+
+[node name="TransitionTrigger" parent="." instance=ExtResource("11_4wsov")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 14.5, 4, 11.5)
+target_scene = "res://scenes/levels/level_5.tscn"
