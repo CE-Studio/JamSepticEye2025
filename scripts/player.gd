@@ -48,21 +48,22 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("interact"):
 		print("interact")
 		if grab.get_child_count() > 0:
-			print("hold")
-			var obj = grab.get_child(0)
-			var trans = Transform3D(obj.global_transform)
-			grab.remove_child(obj)
-			obj.axis_lock_linear_x = false
-			obj.axis_lock_linear_y = false
-			obj.axis_lock_linear_z = false
-			obj.collision_layer = 0b1
-			obj.collision_mask = 0b1
-			parent.add_child(obj)
-			obj.global_transform = trans
+			_drop_cube()
+			#print("hold")
+			#var obj = grab.get_child(0)
+			#var trans = Transform3D(obj.global_transform)
+			#grab.remove_child(obj)
+			#obj.axis_lock_linear_x = false
+			#obj.axis_lock_linear_y = false
+			#obj.axis_lock_linear_z = false
+			#obj.collision_layer = 0b1
+			#obj.collision_mask = 0b1
+			#parent.add_child(obj)
+			#obj.global_transform = trans
 		elif ray.is_colliding():
 			var obj = ray.get_collider()
 			print(obj)
-			if obj.is_in_group("grab"):
+			if obj.is_in_group("grab") and not dead:
 				obj.get_parent().remove_child(obj)
 				grab.add_child(obj)
 				obj.linear_velocity = Vector3.ZERO
@@ -170,6 +171,19 @@ func _play_step() -> void:
 	sfx_steps[i].play()
 
 
+func _drop_cube() -> void:
+	var obj = grab.get_child(0)
+	var trans = Transform3D(obj.global_transform)
+	grab.remove_child(obj)
+	obj.axis_lock_linear_x = false
+	obj.axis_lock_linear_y = false
+	obj.axis_lock_linear_z = false
+	obj.collision_layer = 0b1
+	obj.collision_mask = 0b1
+	parent.add_child(obj)
+	obj.global_transform = trans
+
+
 func die() -> void:
 	dead = true
 	die_y = position.y
@@ -179,6 +193,8 @@ func die() -> void:
 	g_radius.position = position
 	g_radius.position.y = floori(g_radius.position.y)
 	collision_mask -= 8
+	if grab.get_child_count() > 0:
+		_drop_cube()
 
 
 func revive() -> void:
