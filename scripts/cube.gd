@@ -13,7 +13,7 @@ func _on_body_entered(_body):
 
 
 func pop():
-	if global_position.distance_to(Player.instance.global_position) <= 4:
+	if global_position.distance_to(Player.instance.global_position) <= 2:
 		Player.instance.die()
 	ray.global_rotation = Vector3.ZERO
 	ray.force_raycast_update()
