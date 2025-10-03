@@ -1,0 +1,241 @@
+[gd_scene load_steps=18 format=3 uid="uid://bxm31ntfcukyu"]
+
+[ext_resource type="PackedScene" uid="uid://bbv4l13q3bvuv" path="res://parts/player.tscn" id="1_pafwe"]
+[ext_resource type="PackedScene" uid="uid://bqa6ipcu8tjv3" path="res://scenes/ui.tscn" id="2_gf2l7"]
+[ext_resource type="PackedScene" uid="uid://pr1y0ym28d45" path="res://parts/pause.tscn" id="3_glmj6"]
+[ext_resource type="PackedScene" uid="uid://c483fpshkfy18" path="res://parts/death_plane.tscn" id="4_cfbu6"]
+[ext_resource type="Environment" uid="uid://bh0ehhyvsaw3b" path="res://resources/enviro.tres" id="5_bvftm"]
+[ext_resource type="PackedScene" uid="uid://ckl870yxt64ac" path="res://parts/glass.tscn" id="6_4fymt"]
+[ext_resource type="PackedScene" uid="uid://cgl30y8efitgy" path="res://parts/metal_box.tscn" id="7_sb0xc"]
+[ext_resource type="PackedScene" uid="uid://dyxjjj0tf8rci" path="res://parts/spikes.tscn" id="8_b6i88"]
+[ext_resource type="PackedScene" uid="uid://dh7bl3woycvkc" path="res://parts/cube_button.tscn" id="8_uu8qo"]
+[ext_resource type="PackedScene" uid="uid://cfgxkyqjn84jb" path="res://parts/door.tscn" id="9_3wtmn"]
+[ext_resource type="PackedScene" uid="uid://dfk7c5dfekm7b" path="res://parts/antlines/antlines-c2.glb" id="10_cbgmi"]
+[ext_resource type="PackedScene" uid="uid://dibtcct4v7ako" path="res://parts/antlines/antlines-s2.glb" id="11_x5ghr"]
+[ext_resource type="PackedScene" uid="uid://kjxgt25tbusk" path="res://parts/antlines/antlines-s.glb" id="12_172fc"]
+[ext_resource type="PackedScene" uid="uid://b8wm0hj0pf2ny" path="res://parts/antlines/antlines-w.glb" id="12_tqv5a"]
+[ext_resource type="PackedScene" uid="uid://c482u1ckls2mw" path="res://parts/cube.tscn" id="13_aq0d2"]
+[ext_resource type="PackedScene" uid="uid://cufeu3a328pa5" path="res://parts/dropper.tscn" id="15_d2xr8"]
+[ext_resource type="PackedScene" uid="uid://c544b4prfhipr" path="res://parts/pedestal_button.tscn" id="16_k7ksp"]
+
+[node name="Level6" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.25, 0)
+size = Vector3(12, 0.5, 16)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 4.25, 0)
+size = Vector3(14, 0.5, 18)
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 4.25, 2)
+operation = 2
+size = Vector3(1, 0.5, 1)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 4.25, 1)
+operation = 2
+size = Vector3(1, 0.5, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.25, 5)
+size = Vector3(4, 0.5, 4)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.25, 5)
+size = Vector3(4, 0.5, 4)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 2, -2)
+size = Vector3(1, 4, 12)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 2, 7)
+size = Vector3(1, 4, 2)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 3, 5)
+size = Vector3(1, 2, 2)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2, 8.5)
+size = Vector3(13, 4, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2, 7.5)
+size = Vector3(1, 4, 3)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 3, 5)
+size = Vector3(1, 2, 2)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2, -2.5)
+size = Vector3(1, 4, 13)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2, -8.5)
+size = Vector3(13, 4, 1)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 1.5, -1.5)
+size = Vector3(3, 3, 1)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, -1.5)
+size = Vector3(2, 3, 1)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.5, -2.5)
+size = Vector3(1, 3, 1)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.5, -6.5)
+size = Vector3(1, 3, 3)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2.5, -4)
+size = Vector3(1, 1, 2)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2.5, -1.5)
+size = Vector3(2, 1, 1)
+
+[node name="player" parent="." instance=ExtResource("1_pafwe")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.387802, 0.6983557, 5.011541)
+
+[node name="UI" parent="." instance=ExtResource("2_gf2l7")]
+
+[node name="Pause" parent="." instance=ExtResource("3_glmj6")]
+
+[node name="DeathPlane" parent="." instance=ExtResource("4_cfbu6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("5_bvftm")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3, 4)
+shadow_enabled = true
+omni_range = 10.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3, 4)
+shadow_enabled = true
+omni_range = 10.0
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3, -4)
+shadow_enabled = true
+omni_range = 10.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3, -4)
+shadow_enabled = true
+omni_range = 10.0
+
+[node name="Glass" parent="." instance=ExtResource("6_4fymt")]
+transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -1.3000001, 1, 1)
+
+[node name="Glass2" parent="." instance=ExtResource("6_4fymt")]
+transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -1.3000001, 1, 5)
+
+[node name="Glass3" parent="." instance=ExtResource("6_4fymt")]
+transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -1.3000001, 1, 9)
+
+[node name="door" parent="." instance=ExtResource("9_3wtmn")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4, 0, -1)
+
+[node name="door2" parent="." instance=ExtResource("9_3wtmn")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 4, 0, 5)
+
+[node name="Spikes" parent="." instance=ExtResource("8_b6i88")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 7)
+
+[node name="Spikes2" parent="." instance=ExtResource("8_b6i88")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 5.5)
+
+[node name="cubeButton" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("8_uu8qo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 2)
+connections = [NodePath("../antlines-s2"), NodePath("../door")]
+
+[node name="cubeButton2" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("8_uu8qo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 4.5)
+connections = [NodePath("../door2"), NodePath("../antlines-s3"), NodePath("../antlines-s4"), NodePath("../antlines-w"), NodePath("../antlines-w2"), NodePath("../antlines-s5"), NodePath("../antlines-s6"), NodePath("../antlines-c2"), NodePath("../antlines-s")]
+
+[node name="antlines-s2" parent="." instance=ExtResource("11_x5ghr")]
+transform = Transform3D(-5.040527e-08, 0, 1, 0, 1, 0, -1.1531382, 0, -4.371139e-08, -4.7, 0, 1.5)
+
+[node name="pedistalButton" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("16_k7ksp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -2)
+connections = [NodePath("../dropper")]
+
+[node name="pedistalButton2" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("16_k7ksp")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.5, 0, -2)
+connections = [NodePath("../dropper2")]
+
+[node name="antlines-s3" parent="." instance=ExtResource("11_x5ghr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 4.5)
+
+[node name="antlines-s4" parent="." instance=ExtResource("11_x5ghr")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -1.5, 1, 4.5)
+
+[node name="antlines-w" parent="." instance=ExtResource("12_tqv5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 4.5)
+
+[node name="antlines-w2" parent="." instance=ExtResource("12_tqv5a")]
+transform = Transform3D(4.371139e-08, 1, 8.742278e-08, 1, -4.371139e-08, 0, 3.821371e-15, 8.742278e-08, -1, -1.575, 3, 4.5)
+
+[node name="antlines-s5" parent="." instance=ExtResource("11_x5ghr")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -0.5, 4, 4.5)
+
+[node name="antlines-s6" parent="." instance=ExtResource("11_x5ghr")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 1.5, 4, 4.5)
+
+[node name="antlines-c2" parent="." instance=ExtResource("10_cbgmi")]
+transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, 3.8901677, 2.4630787, 4.458022)
+
+[node name="antlines-s" parent="." instance=ExtResource("12_172fc")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 3.9257483, 1.4677402, 4.5)
+
+[node name="MetalBox" parent="." instance=ExtResource("7_sb0xc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5000005, 0.5, -7.5)
+
+[node name="MetalBox2" parent="." instance=ExtResource("7_sb0xc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5000005, 0.49999994, -7.5)
+
+[node name="MetalBox3" parent="." instance=ExtResource("7_sb0xc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5000005, 0.49999988, -7.5)
+
+[node name="MetalBox7" parent="." instance=ExtResource("7_sb0xc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5000005, 0.49999982, -7.5)
+
+[node name="MetalBox8" parent="." instance=ExtResource("7_sb0xc")]
+transform = Transform3D(0.9577824, 0, 0.28749427, 0, 1, 0, -0.28749427, 0, 0.9577824, -4.1403775, 0.49999982, -6.6778316)
+
+[node name="MetalBox4" parent="." instance=ExtResource("7_sb0xc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5000005, 0.49999988, -6.5)
+
+[node name="MetalBox5" parent="." instance=ExtResource("7_sb0xc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5000005, 0.49999982, -6.5)
+
+[node name="MetalBox6" parent="." instance=ExtResource("7_sb0xc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5000005, 1.4999995, -7.5)
+
+[node name="dropper" parent="." node_paths=PackedStringArray("slot2") instance=ExtResource("15_d2xr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 3, 2)
+slot2 = NodePath("../cube")
+
+[node name="cube" parent="." instance=ExtResource("13_aq0d2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.467862, 3.5106933, 2.0901783)
+
+[node name="dropper2" parent="." node_paths=PackedStringArray("slot2") instance=ExtResource("15_d2xr8")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 4, 3, 1)
+slot2 = NodePath("../cube2")
+
+[node name="cube2" parent="." instance=ExtResource("13_aq0d2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.535461, 3.4425664, 0.9400552)
