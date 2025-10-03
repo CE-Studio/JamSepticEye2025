@@ -786,8 +786,7 @@ sfx_crack = NodePath("AudioGroup/Crack")
 shape = SubResource("CapsuleShape3D_4lalg")
 
 [node name="body" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-top_level = true
+transform = Transform3D(1, 0, 1.7484558e-07, 0, 1, 0, -1.7484558e-07, 0, 1, 0, 0, 0)
 
 [node name="grabpoint" type="Node3D" parent="body"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.4291594, 0.309902, -0.6053345)

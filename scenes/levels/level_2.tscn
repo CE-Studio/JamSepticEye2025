@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dl6dp6qe57607"]
+[gd_scene load_steps=11 format=3 uid="uid://dl6dp6qe57607"]
 
 [ext_resource type="PackedScene" uid="uid://bbv4l13q3bvuv" path="res://parts/player.tscn" id="1_ra442"]
 [ext_resource type="PackedScene" uid="uid://pr1y0ym28d45" path="res://parts/pause.tscn" id="2_fiq81"]
@@ -9,6 +9,7 @@
 [ext_resource type="Environment" uid="uid://bh0ehhyvsaw3b" path="res://resources/enviro.tres" id="4_qpwj6"]
 [ext_resource type="PackedScene" uid="uid://dps4pqkb56mxr" path="res://scenes/transition_trigger.tscn" id="8_8qukl"]
 [ext_resource type="PackedScene" uid="uid://06mqlf4bidrk" path="res://parts/ctrl_popup.tscn" id="9_3p04p"]
+[ext_resource type="PackedScene" uid="uid://bhwyn1cfs5vly" path="res://parts/elevator.tscn" id="10_qsp8v"]
 
 [node name="Level2" type="Node3D"]
 
@@ -21,10 +22,6 @@ size = Vector3(24, 0.5, 16)
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 1.75, 9.5)
-size = Vector3(4, 0.5, 5)
-
-[node name="CSGBox3D11" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.25, 1.5)
 size = Vector3(4, 0.5, 5)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
@@ -151,3 +148,6 @@ target_scene = "res://scenes/levels/level_3.tscn"
 [node name="CtrlPopup" parent="." instance=ExtResource("9_3p04p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, 0.5)
 texture = "res://textures/CtrlPopups/Look.png"
+
+[node name="elevator" parent="." instance=ExtResource("10_qsp8v")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12, 0, 2)
