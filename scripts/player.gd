@@ -185,6 +185,8 @@ func _drop_cube() -> void:
 
 
 func die() -> void:
+	if dead:
+		return
 	dead = true
 	die_y = position.y
 	sfx_crack.play()
@@ -198,6 +200,8 @@ func die() -> void:
 
 
 func revive() -> void:
+	if not dead:
+		return
 	dead = false
 	position = Vector3(
 		g_radius.position.x,
