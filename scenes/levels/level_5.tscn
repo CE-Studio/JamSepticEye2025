@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bth11eyecp5bi"]
+[gd_scene load_steps=18 format=3 uid="uid://bth11eyecp5bi"]
 
 [ext_resource type="PackedScene" uid="uid://bbv4l13q3bvuv" path="res://parts/player.tscn" id="1_tqnj0"]
 [ext_resource type="PackedScene" uid="uid://bqa6ipcu8tjv3" path="res://scenes/ui.tscn" id="2_dwyms"]
@@ -9,9 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://dh7bl3woycvkc" path="res://parts/cube_button.tscn" id="8_dwyms"]
 [ext_resource type="Environment" uid="uid://bh0ehhyvsaw3b" path="res://resources/enviro.tres" id="8_h717f"]
 [ext_resource type="PackedScene" uid="uid://cfgxkyqjn84jb" path="res://parts/door.tscn" id="9_6xwso"]
+[ext_resource type="PackedScene" uid="uid://dyxjjj0tf8rci" path="res://parts/spikes.tscn" id="9_l8eod"]
 [ext_resource type="PackedScene" uid="uid://dfk7c5dfekm7b" path="res://parts/antlines/antlines-c2.glb" id="10_5ke18"]
+[ext_resource type="PackedScene" uid="uid://06mqlf4bidrk" path="res://parts/ctrl_popup.tscn" id="10_sfnul"]
 [ext_resource type="PackedScene" uid="uid://dibtcct4v7ako" path="res://parts/antlines/antlines-s2.glb" id="11_j14br"]
 [ext_resource type="PackedScene" uid="uid://kjxgt25tbusk" path="res://parts/antlines/antlines-s.glb" id="12_6xwso"]
+[ext_resource type="PackedScene" uid="uid://c482u1ckls2mw" path="res://parts/cube.tscn" id="13_j14br"]
+[ext_resource type="PackedScene" uid="uid://cufeu3a328pa5" path="res://parts/dropper.tscn" id="15_0y7y4"]
+[ext_resource type="PackedScene" uid="uid://c544b4prfhipr" path="res://parts/pedestal_button.tscn" id="16_gruok"]
 
 [node name="Level5" type="Node3D"]
 
@@ -142,7 +147,7 @@ transform = Transform3D(0.9959866, 0, 0.08950272, 0, 1, 0, -0.08950272, 0, 0.995
 
 [node name="cubeButton" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("8_dwyms")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)
-connections = [NodePath("../door"), NodePath("../antlines-c2"), NodePath("../antlines-s2")]
+connections = [NodePath("../door"), NodePath("../antlines-c2"), NodePath("../antlines-s2"), NodePath("../antlines-s")]
 
 [node name="door" parent="." instance=ExtResource("9_6xwso")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0, 1)
@@ -155,3 +160,31 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.40
 
 [node name="antlines-s" parent="." instance=ExtResource("12_6xwso")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.4, 0, -2.6)
+
+[node name="cube" parent="." instance=ExtResource("13_j14br")]
+transform = Transform3D(0.92803144, 0, 0.3725019, 0, 1, 0, -0.3725019, 0, 0.92803144, -2.7186897, 0.24393412, -3.3260846)
+
+[node name="CtrlPopup" parent="." instance=ExtResource("10_sfnul")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.13769, 1.440563, -3.4683259)
+texture = "res://textures/CtrlPopups/Interact.png"
+delay = 1.0
+
+[node name="dropper" parent="." node_paths=PackedStringArray("slot2") instance=ExtResource("15_0y7y4")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11, 2.5, 1)
+slot2 = NodePath("../cube2")
+
+[node name="cube2" parent="." instance=ExtResource("13_j14br")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.47937, 2.8942327, 1.1027207)
+
+[node name="pedistalButton" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("16_gruok")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 10.7, 0, 2)
+connections = [NodePath("../dropper"), NodePath("../antlines-c3"), NodePath("../antlines-s3")]
+
+[node name="antlines-c3" parent="." instance=ExtResource("10_5ke18")]
+transform = Transform3D(4.371139e-08, -1, 3.821371e-15, -1, -4.371139e-08, -8.742278e-08, 8.742278e-08, 0, -1, 10.9, 1.5, 1)
+
+[node name="antlines-s3" parent="." instance=ExtResource("12_6xwso")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 10.9, 1.5, 1)
+
+[node name="Spikes" parent="." instance=ExtResource("9_l8eod")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.07348, 0, -0.093622684)
