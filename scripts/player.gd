@@ -33,6 +33,7 @@ var die_y:float = 0.0
 
 
 func _ready() -> void:
+	body.top_level = true
 	instance = self
 
 
