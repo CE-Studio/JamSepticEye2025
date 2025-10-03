@@ -43,12 +43,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2, 2.5)
 size = Vector3(8, 4, 3)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 2, 0.5)
-size = Vector3(1, 4, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 2, -0.25)
+size = Vector3(1, 4, 2.5)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 3, -2.5)
+size = Vector3(1, 2, 2)
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 2, -5.5)
-size = Vector3(1, 4, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 2, -4.75)
+size = Vector3(1, 4, 2.5)
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4.25, 0)
@@ -69,10 +73,12 @@ environment = ExtResource("4_sk5k4")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 4, -3)
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="PushBox" parent="." instance=ExtResource("3_nsrm0")]

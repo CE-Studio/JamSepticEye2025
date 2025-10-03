@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bth11eyecp5bi"]
+[gd_scene load_steps=18 format=3 uid="uid://bth11eyecp5bi"]
 
 [ext_resource type="PackedScene" uid="uid://bbv4l13q3bvuv" path="res://parts/player.tscn" id="1_tqnj0"]
 [ext_resource type="PackedScene" uid="uid://bqa6ipcu8tjv3" path="res://scenes/ui.tscn" id="2_dwyms"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c482u1ckls2mw" path="res://parts/cube.tscn" id="13_j14br"]
 [ext_resource type="PackedScene" uid="uid://cufeu3a328pa5" path="res://parts/dropper.tscn" id="15_0y7y4"]
 [ext_resource type="PackedScene" uid="uid://c544b4prfhipr" path="res://parts/pedestal_button.tscn" id="16_gruok"]
+[ext_resource type="PackedScene" uid="uid://dps4pqkb56mxr" path="res://scenes/transition_trigger.tscn" id="17_h717f"]
 
 [node name="Level5" type="Node3D"]
 
@@ -27,8 +28,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.25, 0)
 size = Vector3(19, 0.5, 16)
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 5.25, -0.5)
-size = Vector3(19, 0.5, 17)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5.25, -0.5)
+size = Vector3(20, 0.5, 17)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 5.25, 1)
+operation = 2
+size = Vector3(1, 0.5, 1)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 1.5, 1.5)
@@ -43,28 +49,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2.5, 8.5)
 size = Vector3(19, 5, 1)
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 2.5, 4)
-size = Vector3(1, 5, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 2.5, 3.25)
+size = Vector3(1, 5, 11.5)
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 2.5, -7.5)
-size = Vector3(1, 5, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 2.5, -6.75)
+size = Vector3(1, 5, 4.5)
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, -8.5)
-size = Vector3(13, 5, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2.5, -8.5)
+size = Vector3(15, 5, 1)
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 2.5, -8.5)
-size = Vector3(3, 5, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, -8.5)
+size = Vector3(4, 5, 1)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 4.25, -8.5)
+size = Vector3(2, 1.5, 1)
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 2.5, 0.5)
 size = Vector3(1, 5, 17)
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 4, -3.5)
-size = Vector3(1, 2, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 3.5, -3.5)
+size = Vector3(1, 3, 2)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.75, -5.5)
@@ -97,25 +107,44 @@ environment = ExtResource("8_h717f")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4, 4)
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4, -4)
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4, 4)
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4, -4)
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="Glass" parent="." instance=ExtResource("7_gruok")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.5, 0.5, -2)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.1999998, 0, -2)
 
 [node name="Glass2" parent="." instance=ExtResource("7_gruok")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.5, 0.5, 0)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.1999998, 0, 0)
+
+[node name="Glass3" parent="." instance=ExtResource("7_gruok")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.1999998, 2, 0)
+
+[node name="Glass4" parent="." instance=ExtResource("7_gruok")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.1999998, 2, -2)
+
+[node name="Glass5" parent="." instance=ExtResource("7_gruok")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.1999998, 2, -4)
+
+[node name="Glass6" parent="." instance=ExtResource("7_gruok")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.1999998, 2, -6)
+
+[node name="Glass7" parent="." instance=ExtResource("7_gruok")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.1999998, 2, -8)
 
 [node name="MetalBox" parent="." instance=ExtResource("6_0y7y4")]
 transform = Transform3D(0.9836784, 0, 0.17993544, 0, 1, 0, -0.17993544, 0, 0.9836784, -6.993705, 0.5024853, -6.797762)
@@ -169,18 +198,25 @@ texture = "res://textures/CtrlPopups/Interact.png"
 delay = 1.0
 
 [node name="dropper" parent="." node_paths=PackedStringArray("slot2") instance=ExtResource("15_0y7y4")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11, 2.5, 1)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11, 3.5, 1)
 slot2 = NodePath("../cube2")
 
 [node name="cube2" parent="." instance=ExtResource("13_j14br")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.47937, 2.8942327, 1.1027207)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.47937, 3.8942327, 1.1027207)
 
 [node name="pedistalButton" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("16_gruok")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 10.7, 0, 2)
-connections = [NodePath("../dropper"), NodePath("../antlines-c3"), NodePath("../antlines-s3")]
+connections = [NodePath("../dropper"), NodePath("../antlines-c3"), NodePath("../antlines-s3"), NodePath("../antlines-s4")]
 
 [node name="antlines-c3" parent="." instance=ExtResource("10_5ke18")]
 transform = Transform3D(4.371139e-08, -1, 3.821371e-15, -1, -4.371139e-08, -8.742278e-08, 8.742278e-08, 0, -1, 10.9, 1.5, 1)
 
 [node name="antlines-s3" parent="." instance=ExtResource("12_6xwso")]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 10.9, 1.5, 1)
+
+[node name="antlines-s4" parent="." instance=ExtResource("12_6xwso")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 10.9, 2.5, 1)
+
+[node name="TransitionTrigger" parent="." instance=ExtResource("17_h717f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 6.5, 3, -11.5)
+target_scene = "res://scenes/levels/level_6.tscn"
