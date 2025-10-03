@@ -20,7 +20,7 @@ var i_time:float = 0.0
 var hazard_collisions:int = 0
 var die_y:float = 0.0
 
-@export var sfx_steps:Array[AudioStreamPlayer3D]
+@export var sfx_step:AudioStreamPlayer3D
 @export var sfx_crack:AudioStreamPlayer3D
 
 @onready var cam:SpringArm3D = $SpringArm3D
@@ -167,8 +167,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _play_step() -> void:
-	var i:int = randi_range(0, sfx_steps.size() - 1)
-	sfx_steps[i].play()
+	sfx_step.play()
 
 
 func _drop_cube() -> void:
