@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://711oxqr528qd"]
+[gd_scene load_steps=9 format=3 uid="uid://711oxqr528qd"]
 
 [ext_resource type="Texture2D" uid="uid://c7avhapfs41r6" path="res://textures/explosion_decal.png" id="1_rriy6"]
 [ext_resource type="Material" uid="uid://dt6qu1fhqc4xi" path="res://textures/mat/explosion.tres" id="2_ivmsk"]
+[ext_resource type="AudioStream" uid="uid://eq64u0e0vrgc" path="res://sound/physics/expl.wav" id="3_10t4e"]
 
 [sub_resource type="Curve" id="Curve_rriy6"]
 _data = [Vector2(0, 0), 0.0, 4.4494386, 0, 0, Vector2(1, 0), -4.1071754, 0.0, 0, 0]
@@ -17,6 +18,11 @@ scale_curve = SubResource("CurveTexture_ivmsk")
 [sub_resource type="SphereMesh" id="SphereMesh_ql013"]
 radius = 1.0
 height = 2.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ql013"]
+random_pitch = 1.76
+streams_count = 1
+stream_0/stream = ExtResource("3_10t4e")
 
 [node name="ExplosionDecal" type="Decal"]
 size = Vector3(2, 0.038085938, 2)
@@ -35,6 +41,10 @@ lifetime = 0.16
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_10t4e")
 draw_pass_1 = SubResource("SphereMesh_ql013")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="GPUParticles3D"]
+stream = SubResource("AudioStreamRandomizer_ql013")
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="queue_free"]
 [connection signal="ready" from="GPUParticles3D" to="GPUParticles3D" method="set_emitting" binds= [true]]
