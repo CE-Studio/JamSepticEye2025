@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dfdiwov0mtumr"]
+[gd_scene load_steps=11 format=3 uid="uid://dfdiwov0mtumr"]
 
 [ext_resource type="PackedScene" uid="uid://bbv4l13q3bvuv" path="res://parts/player.tscn" id="1_5vn0v"]
 [ext_resource type="PackedScene" uid="uid://dfvjtjlv63mkd" path="res://parts/push_box_2x4.tscn" id="1_ts8eg"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c483fpshkfy18" path="res://parts/death_plane.tscn" id="4_glw47"]
 [ext_resource type="Environment" uid="uid://bh0ehhyvsaw3b" path="res://resources/enviro.tres" id="5_4wsov"]
 [ext_resource type="PackedScene" uid="uid://dyxjjj0tf8rci" path="res://parts/spikes.tscn" id="7_hsvsk"]
+[ext_resource type="PackedScene" uid="uid://06mqlf4bidrk" path="res://parts/ctrl_popup.tscn" id="10_glw47"]
 
 [node name="Level4" type="Node3D"]
 
@@ -165,3 +166,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2, -1)
 
 [node name="Spikes6" parent="." instance=ExtResource("7_hsvsk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2, -2.5)
+
+[node name="CtrlPopup" parent="." instance=ExtResource("10_glw47")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+texture = "res://textures/CtrlPopups/Restart.png"
+delay = 1.0
