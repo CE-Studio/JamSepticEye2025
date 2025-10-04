@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bbv4l13q3bvuv"]
+[gd_scene load_steps=29 format=3 uid="uid://bbv4l13q3bvuv"]
 
 [ext_resource type="Script" uid="uid://bt8y45khvum1b" path="res://scripts/player.gd" id="1_vnk1p"]
 [ext_resource type="PackedScene" uid="uid://cjper3lh65ply" path="res://models/Eggbert.blend" id="2_aaff8"]
@@ -11,6 +11,12 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4lalg"]
 radius = 0.3
 height = 1.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nej8a"]
+radius = 0.29
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vmdr7"]
+radius = 0.11
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_vh72h"]
 radius = 0.1
@@ -791,8 +797,14 @@ shape = SubResource("CapsuleShape3D_4lalg")
 [node name="body" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 1.7484558e-07, 0, 1, 0, -1.7484558e-07, 0, 1, 0, 0, 0)
 
-[node name="grabpoint" type="Node3D" parent="body"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.4291594, 0.309902, -0.6053345)
+[node name="SpringArm3D" type="SpringArm3D" parent="body"]
+transform = Transform3D(-0.8198423, 0, 0.5725895, 0, 1, 0, -0.5725895, 0, -0.8198423, 0, 0.31, 0)
+collision_mask = 255
+shape = SubResource("SphereShape3D_nej8a")
+spring_length = 0.742
+
+[node name="grabpoint" type="Marker3D" parent="body/SpringArm3D"]
+transform = Transform3D(0.81984216, 0, 0.57258934, 0, 1, 0, -0.57258934, 0, 0.81984216, 0, 0, 0)
 
 [node name="Eggbert" parent="body" instance=ExtResource("2_aaff8")]
 transform = Transform3D(-0.24, 0, -2.0981467e-08, 0, 0.24, 0, 2.0981467e-08, 0, -0.24, 0, 0.12237102, 0)
@@ -808,46 +820,55 @@ bones/10/rotation = Quaternion(-0.0005523414, 1.5294383e-08, 8.640735e-10, 0.999
 bones/10/scale = Vector3(1.0000012, 0.9999988, 1)
 
 [node name="SpringArm3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31, 0)
 
-[node name="Node3D" type="SpringArm3D" parent="SpringArm3D"]
+[node name="SpringArm3D" type="SpringArm3D" parent="SpringArm3D"]
+process_physics_priority = -2
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_vmdr7")
+spring_length = 0.453
+
+[node name="Node3D2" type="Node3D" parent="SpringArm3D/SpringArm3D"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="Node3D" type="SpringArm3D" parent="SpringArm3D/SpringArm3D/Node3D2"]
 process_physics_priority = -1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.453, 0.31, 0)
 shape = SubResource("SphereShape3D_vh72h")
 spring_length = 4.0
 
-[node name="Camera3D" type="Camera3D" parent="SpringArm3D/Node3D"]
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D/SpringArm3D/Node3D2/Node3D"]
 far = 1000.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SpringArm3D/Node3D/Camera3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpringArm3D/SpringArm3D/Node3D2/Node3D/Camera3D"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -0.09)
 mesh = SubResource("SphereMesh_olu26")
 surface_material_override/0 = SubResource("StandardMaterial3D_0jt38")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="SpringArm3D/Node3D/Camera3D/MeshInstance3D"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="SpringArm3D/SpringArm3D/Node3D2/Node3D/Camera3D/MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015, 0, 0)
 mesh = SubResource("SphereMesh_olu26")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_8lgh7")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="SpringArm3D/Node3D/Camera3D/MeshInstance3D"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="SpringArm3D/SpringArm3D/Node3D2/Node3D/Camera3D/MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015, 0, 0)
 mesh = SubResource("SphereMesh_olu26")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_jxwcy")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="SpringArm3D/Node3D/Camera3D/MeshInstance3D"]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="SpringArm3D/SpringArm3D/Node3D2/Node3D/Camera3D/MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0150001, 0)
 mesh = SubResource("SphereMesh_olu26")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_hb6ck")
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="SpringArm3D/Node3D/Camera3D/MeshInstance3D"]
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="SpringArm3D/SpringArm3D/Node3D2/Node3D/Camera3D/MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0150001, 0)
 mesh = SubResource("SphereMesh_olu26")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_3k433")
 
-[node name="RayCast3D" type="RayCast3D" parent="SpringArm3D/Node3D/Camera3D"]
+[node name="RayCast3D" type="RayCast3D" parent="SpringArm3D/SpringArm3D/Node3D2/Node3D/Camera3D"]
 target_position = Vector3(0, 0, -6.2)
 collide_with_areas = true
 

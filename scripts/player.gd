@@ -24,9 +24,9 @@ var die_y:float = 0.0
 @export var sfx_crack:AudioStreamPlayer3D
 
 @onready var cam:Node3D = $SpringArm3D
-@onready var ray:RayCast3D = $SpringArm3D/Node3D/Camera3D/RayCast3D
+@onready var ray:RayCast3D = $SpringArm3D/SpringArm3D/Node3D2/Node3D/Camera3D/RayCast3D
 @onready var parent:Node3D = $"../"
-@onready var grab:Node3D = $body/grabpoint
+@onready var grab:Node3D = $body/SpringArm3D/grabpoint
 @onready var body:Node3D = $body
 @onready var animtree:AnimationTree = $AnimationTree
 @onready var radius:PackedScene = preload("res://parts/ghost_radius.tscn")
