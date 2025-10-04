@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bbv4l13q3bvuv"]
+[gd_scene load_steps=27 format=3 uid="uid://bbv4l13q3bvuv"]
 
 [ext_resource type="Script" uid="uid://bt8y45khvum1b" path="res://scripts/player.gd" id="1_vnk1p"]
 [ext_resource type="PackedScene" uid="uid://cjper3lh65ply" path="res://models/Eggbert.blend" id="2_aaff8"]
@@ -11,6 +11,9 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4lalg"]
 radius = 0.3
 height = 1.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vh72h"]
+radius = 0.1
 
 [sub_resource type="SphereMesh" id="SphereMesh_olu26"]
 radius = 0.005
@@ -804,13 +807,15 @@ bones/9/scale = Vector3(1.0000007, 0.9999996, 1)
 bones/10/rotation = Quaternion(-0.0005523414, 1.5294383e-08, 8.640735e-10, 0.9999999)
 bones/10/scale = Vector3(1.0000012, 0.9999988, 1)
 
-[node name="SpringArm3D" type="SpringArm3D" parent="."]
+[node name="SpringArm3D" type="Node3D" parent="."]
+
+[node name="Node3D" type="SpringArm3D" parent="SpringArm3D"]
+process_physics_priority = -1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.453, 0.31, 0)
+shape = SubResource("SphereShape3D_vh72h")
 spring_length = 4.0
 
-[node name="Node3D" type="Node3D" parent="SpringArm3D"]
-
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45266718, 0.309902, 0.40436313)
 far = 1000.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SpringArm3D/Node3D/Camera3D"]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://bphb32pm8vlsr"]
+
+[ext_resource type="Texture2D" uid="uid://bc2s3qute3dd1" path="res://textures/frig.png" id="1_2o0or"]
+[ext_resource type="Material" uid="uid://4727m3inrkcd" path="res://textures/mat/ceil.tres" id="2_u3h78"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u3h78"]
+albedo_texture = ExtResource("1_2o0or")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ogm5u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wpyb7"]
+size = Vector3(2, 0.04, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fx5pn"]
+size = Vector3(2, 0.04, 2)
+
+[node name="Signpanel" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+material_override = SubResource("StandardMaterial3D_u3h78")
+mesh = SubResource("PlaneMesh_ogm5u")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 0)
+material_override = ExtResource("2_u3h78")
+mesh = SubResource("BoxMesh_wpyb7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 0)
+shape = SubResource("BoxShape3D_fx5pn")
