@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://p5rlwdw6n72h"]
+[gd_scene load_steps=14 format=3 uid="uid://p5rlwdw6n72h"]
 
 [ext_resource type="Script" uid="uid://ca6e5r1id62p6" path="res://scripts/ghost_radius.gd" id="1_7wdcx"]
 [ext_resource type="PackedScene" uid="uid://cedgl3vs1qvhj" path="res://parts/ghost_radius_effect.tscn" id="1_c25m2"]
 [ext_resource type="PackedScene" uid="uid://cvncyi5phd8h0" path="res://models/Eggshell.blend" id="3_4pp1b"]
+[ext_resource type="Texture2D" uid="uid://1dgy1dm2w3v5" path="res://textures/CorpseParticle.png" id="4_uve1m"]
 
 [sub_resource type="Animation" id="Animation_uve1m"]
 resource_name = "Despawn"
@@ -154,6 +155,33 @@ _data = {
 &"Spawn": SubResource("Animation_7wdcx")
 }
 
+[sub_resource type="Gradient" id="Gradient_2b2yh"]
+offsets = PackedFloat32Array(0, 0.13207547, 0.49056605, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4yisr"]
+gradient = SubResource("Gradient_2b2yh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_50oap"]
+lifetime_randomness = 0.3
+direction = Vector3(0, 1, 0)
+spread = 15.0
+initial_velocity_min = 2.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_4yisr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iie1j"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.23137255)
+albedo_texture = ExtResource("4_uve1m")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_ob0da"]
+material = SubResource("StandardMaterial3D_iie1j")
+size = Vector2(0.4, 0.4)
+
 [node name="GhostRadius" type="Node3D"]
 script = ExtResource("1_7wdcx")
 
@@ -171,3 +199,11 @@ transform = Transform3D(-0.12500001, -0.21650635, 0, 0.21650635, -0.12500001, 0,
 
 [node name="Eggshell2" parent="." instance=ExtResource("3_4pp1b")]
 transform = Transform3D(-0.12500001, 0.21650635, 0, -0.21650635, -0.12500001, 0, 0, 0, 0.25, 0.7, 0.3, 0)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+visible = false
+amount = 16
+randomness = 0.1
+process_material = SubResource("ParticleProcessMaterial_50oap")
+draw_pass_1 = SubResource("QuadMesh_ob0da")

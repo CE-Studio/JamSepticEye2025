@@ -10,6 +10,7 @@ static var first_spawn:bool = true
 @onready var outer:Node3D = $"EffectOuter"
 @onready var inner:Node3D = $"EffectInner"
 @onready var anim:AnimationPlayer = $"AnimationPlayer"
+@onready var part:GPUParticles3D = $"GPUParticles3D"
 
 
 func _ready() -> void:
