@@ -197,6 +197,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.13769, 1.440563, -3.468325
 texture = "res://textures/CtrlPopups/Interact.png"
 delay = 1.0
 
+[node name="CtrlPopup2" parent="." instance=ExtResource("10_sfnul")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.662311, 1.440563, 1.7316742)
+texture = "res://textures/CtrlPopups/Interact.png"
+
 [node name="dropper" parent="." node_paths=PackedStringArray("slot2") instance=ExtResource("15_0y7y4")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11, 3.5, 1)
 slot2 = NodePath("../cube2")
