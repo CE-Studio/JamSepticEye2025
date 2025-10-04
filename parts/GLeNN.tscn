@@ -1,0 +1,48 @@
+[gd_scene load_steps=11 format=3 uid="uid://c1p8627s1m26u"]
+
+[ext_resource type="PackedScene" uid="uid://bj1mfx3rstb6p" path="res://models/GLeNN.blend" id="1_qmxs8"]
+[ext_resource type="Texture2D" uid="uid://cv4epmaww5gv3" path="res://textures/GLeNN base.png" id="2_a6606"]
+[ext_resource type="Texture2D" uid="uid://d0l3es7o4k5x1" path="res://textures/GLeNN base emmissive.png" id="3_tjx1s"]
+[ext_resource type="Material" uid="uid://opt20r3lh406" path="res://textures/mat/metal1.tres" id="4_jogqf"]
+[ext_resource type="Texture2D" uid="uid://dc3hjuuxxoxra" path="res://textures/GLeNN cam.png" id="5_6bnqj"]
+[ext_resource type="Texture2D" uid="uid://fs8viqo6h86l" path="res://textures/GLeNN cam emmissive.png" id="6_vqgrw"]
+[ext_resource type="Texture2D" uid="uid://5lrstlx7e1iw" path="res://textures/glenn lens.png" id="7_scxh4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b8fks"]
+albedo_texture = ExtResource("2_a6606")
+emission_enabled = true
+emission_texture = ExtResource("3_tjx1s")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k4hi5"]
+albedo_texture = ExtResource("5_6bnqj")
+emission_enabled = true
+emission_texture = ExtResource("6_vqgrw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3pipk"]
+albedo_texture = ExtResource("7_scxh4")
+
+[node name="GLeNN" instance=ExtResource("1_qmxs8")]
+
+[node name="Cube" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_b8fks")
+
+[node name="Cylinder" parent="Cube" index="0"]
+material_override = ExtResource("4_jogqf")
+
+[node name="Cube_001" parent="Cube/Cylinder" index="0"]
+material_override = ExtResource("4_jogqf")
+
+[node name="Cube_002" parent="Cube/Cylinder/Cube_001" index="0"]
+material_override = ExtResource("4_jogqf")
+
+[node name="Cube_003" parent="Cube/Cylinder/Cube_001/Cube_002" index="0"]
+material_override = SubResource("StandardMaterial3D_k4hi5")
+
+[node name="Cube_004" parent="Cube/Cylinder/Cube_001/Cube_002/Cube_003" index="0"]
+material_override = ExtResource("4_jogqf")
+
+[node name="Cube_005" parent="Cube/Cylinder/Cube_001/Cube_002/Cube_003" index="1"]
+material_override = ExtResource("4_jogqf")
+
+[node name="Cylinder_001" parent="Cube/Cylinder/Cube_001/Cube_002/Cube_003" index="2"]
+material_override = SubResource("StandardMaterial3D_3pipk")

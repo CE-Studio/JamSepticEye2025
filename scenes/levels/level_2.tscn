@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dl6dp6qe57607"]
+[gd_scene load_steps=15 format=3 uid="uid://dl6dp6qe57607"]
 
 [ext_resource type="PackedScene" uid="uid://bbv4l13q3bvuv" path="res://parts/player.tscn" id="1_ra442"]
+[ext_resource type="Material" uid="uid://dl7fbxot1sjwy" path="res://textures/mat/floor.tres" id="1_tv7cl"]
 [ext_resource type="PackedScene" uid="uid://pr1y0ym28d45" path="res://parts/pause.tscn" id="2_fiq81"]
 [ext_resource type="PackedScene" uid="uid://bqa6ipcu8tjv3" path="res://scenes/ui.tscn" id="2_l37oo"]
+[ext_resource type="Material" uid="uid://4727m3inrkcd" path="res://textures/mat/ceil.tres" id="2_r88tb"]
 [ext_resource type="PackedScene" uid="uid://deb6pjoy65r7i" path="res://parts/push_box.tscn" id="3_l37oo"]
 [ext_resource type="PackedScene" uid="uid://cgl30y8efitgy" path="res://parts/metal_box.tscn" id="4_fiq81"]
 [ext_resource type="PackedScene" uid="uid://c483fpshkfy18" path="res://parts/death_plane.tscn" id="4_ibugp"]
@@ -10,6 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://dps4pqkb56mxr" path="res://scenes/transition_trigger.tscn" id="8_8qukl"]
 [ext_resource type="PackedScene" uid="uid://06mqlf4bidrk" path="res://parts/ctrl_popup.tscn" id="9_3p04p"]
 [ext_resource type="PackedScene" uid="uid://bhwyn1cfs5vly" path="res://parts/elevator.tscn" id="10_qsp8v"]
+[ext_resource type="Script" uid="uid://bcn8oydqfqle2" path="res://scripts/trigger.gd" id="11_nt80m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_brxtv"]
+size = Vector3(7.565979, 2.230957, 6.3917236)
 
 [node name="Level2" type="Node3D"]
 
@@ -17,24 +23,13 @@
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.25, 0)
-size = Vector3(24, 0.5, 16)
-
-[node name="CSGBox3D9" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 1.75, 9.5)
-size = Vector3(4, 0.5, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -0.25, 0)
+size = Vector3(23, 0.5, 16)
+material = ExtResource("1_tv7cl")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 4, -3.5)
-size = Vector3(1, 8, 9)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 4, 5.5)
-size = Vector3(1, 8, 5)
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 5, 2)
-size = Vector3(1, 6, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 4, -5)
+size = Vector3(1, 8, 6)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 4, 10)
@@ -45,35 +40,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 4, -7)
 size = Vector3(23, 8, 2)
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 4, 0.25)
-size = Vector3(1, 8, 16.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 4, -0.5)
+size = Vector3(1, 8, 15)
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 4, 12.75)
-size = Vector3(1, 8, 4.5)
-
-[node name="CSGBox3D13" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 6, 9.5)
-size = Vector3(1, 4, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 4, 14)
+size = Vector3(1, 8, 2)
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 4, 14.5)
 size = Vector3(14, 8, 1)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 1, 9.5)
-size = Vector3(13, 2, 9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 9.5)
+size = Vector3(14, 2, 9)
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 7, 0)
 size = Vector3(6, 2, 12)
+material = ExtResource("2_r88tb")
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 9, 4)
 size = Vector3(23, 2, 20)
+material = ExtResource("2_r88tb")
 
 [node name="player" parent="." instance=ExtResource("1_ra442")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.387802, 0.69835544, 0.5115409)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11.035652, -1.7737269, 2.0191207)
 
 [node name="UI" parent="." instance=ExtResource("2_l37oo")]
 
@@ -124,7 +117,7 @@ transform = Transform3D(-0.85974526, 0, 0.510723, 0, 1, 0, -0.510723, 0, -0.8597
 transform = Transform3D(0.8733984, 0, 0.48700625, 0, 1, 0, -0.48700625, 0, 0.8733984, -1.4974785, 0.504971, 3.3680887)
 
 [node name="PushBox11" parent="." instance=ExtResource("3_l37oo")]
-transform = Transform3D(0.6821388, 0, -0.7312227, 0, 1, 0, 0.7312227, 0, 0.6821388, 11.685162, 0.504971, -1.8356714)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.685162, 0.504971, -1.8356714)
 
 [node name="PushBox5" parent="." instance=ExtResource("3_l37oo")]
 transform = Transform3D(0.9999573, 0, 0.0092327595, 0, 1, 0, -0.0092327595, 0, 0.9999573, -4.5376725, 0.504971, -4.971955)
@@ -142,7 +135,7 @@ transform = Transform3D(0.9984005, 0, -0.05653596, 0, 1, 0, 0.05653596, 0, 0.998
 transform = Transform3D(0.9839474, 0, 0.17845877, 0, 1, 0, -0.17845877, 0, 0.9839474, 4.240474, 0.5024855, -1.5398294)
 
 [node name="TransitionTrigger" parent="." instance=ExtResource("8_8qukl")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 19.5, 4, 9.5)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 20.43351, 10.484108, 10.594339)
 target_scene = "res://scenes/levels/level_3.tscn"
 
 [node name="CtrlPopup" parent="." instance=ExtResource("9_3p04p")]
@@ -150,4 +143,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, 0.5)
 texture = "res://textures/CtrlPopups/Look.png"
 
 [node name="elevator" parent="." instance=ExtResource("10_qsp8v")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12, 0, 2)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11, 0, 2)
+entry = true
+
+[node name="elevator2" parent="." instance=ExtResource("10_qsp8v")]
+transform = Transform3D(1.1920929e-07, 0, 1, 0, 1, 0, -1, 0, 1.1920929e-07, 20.017193, 2, 9.849976)
+
+[node name="Trigger" type="Area3D" parent="." node_paths=PackedStringArray("connections")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.668352, 3.798007, 10.082188)
+script = ExtResource("11_nt80m")
+connections = [NodePath("../elevator2")]
+metadata/_custom_type_script = "uid://bcn8oydqfqle2"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41384888, -0.6154785, -0.4491577)
+shape = SubResource("BoxShape3D_brxtv")

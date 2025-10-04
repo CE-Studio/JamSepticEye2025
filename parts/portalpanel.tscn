@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://chwwd25ppdp6e"]
+
+[ext_resource type="Texture2D" uid="uid://b0k3mkymumqch" path="res://textures/portalpanel.png" id="1_hqgmh"]
+[ext_resource type="Material" uid="uid://4727m3inrkcd" path="res://textures/mat/ceil.tres" id="2_wc67w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4lnp"]
+albedo_texture = ExtResource("1_hqgmh")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ogm5u"]
+size = Vector2(2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wpyb7"]
+size = Vector3(2, 0.04, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fx5pn"]
+size = Vector3(2, 0.04, 1)
+
+[node name="Portalpanel" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+material_override = SubResource("StandardMaterial3D_g4lnp")
+mesh = SubResource("PlaneMesh_ogm5u")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 0)
+material_override = ExtResource("2_wc67w")
+mesh = SubResource("BoxMesh_wpyb7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 0)
+shape = SubResource("BoxShape3D_fx5pn")

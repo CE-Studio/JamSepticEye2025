@@ -23,7 +23,7 @@ var die_y:float = 0.0
 @export var sfx_step:AudioStreamPlayer3D
 @export var sfx_crack:AudioStreamPlayer3D
 
-@onready var cam:SpringArm3D = $SpringArm3D
+@onready var cam:Node3D = $SpringArm3D
 @onready var ray:RayCast3D = $SpringArm3D/Node3D/Camera3D/RayCast3D
 @onready var parent:Node3D = $"../"
 @onready var grab:Node3D = $body/grabpoint

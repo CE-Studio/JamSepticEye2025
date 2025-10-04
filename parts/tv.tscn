@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvodlvfg4wj74"]
+
+[ext_resource type="PackedScene" uid="uid://1klio28htdt1" path="res://models/shittyTV.blend" id="1_y6ejk"]
+[ext_resource type="Texture2D" uid="uid://clfhq27q5rfht" path="res://textures/TVbodyTexture.png" id="2_jhipn"]
+[ext_resource type="Material" uid="uid://opt20r3lh406" path="res://textures/mat/metal1.tres" id="3_jyubn"]
+[ext_resource type="Texture2D" uid="uid://bjyrnpr2ly8ss" path="res://textures/TVplugTexture.png" id="4_f13nk"]
+[ext_resource type="Material" uid="uid://d36wg05jdnij" path="res://textures/mat/darkgreyplastic.tres" id="5_5hbvg"]
+
+[sub_resource type="GDScript" id="GDScript_y6ejk"]
+script/source = "extends Node3D
+
+
+@export var screen:BaseMaterial3D
+
+
+func _ready() -> void:
+	$shittyTV/Plane.material_override = screen
+"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_22t7c"]
+albedo_texture = ExtResource("2_jhipn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yi2he"]
+albedo_texture = ExtResource("4_f13nk")
+
+[node name="Tv" type="Node3D"]
+script = SubResource("GDScript_y6ejk")
+
+[node name="shittyTV" parent="." instance=ExtResource("1_y6ejk")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="Cube_001" parent="shittyTV" index="0"]
+material_override = SubResource("StandardMaterial3D_22t7c")
+
+[node name="Cylinder" parent="shittyTV" index="1"]
+material_override = ExtResource("3_jyubn")
+
+[node name="Cube" parent="shittyTV" index="2"]
+material_override = ExtResource("3_jyubn")
+
+[node name="Cube_002" parent="shittyTV" index="3"]
+material_override = ExtResource("3_jyubn")
+
+[node name="Cube_003" parent="shittyTV" index="4"]
+material_override = ExtResource("3_jyubn")
+
+[node name="Cube_004" parent="shittyTV" index="5"]
+material_override = SubResource("StandardMaterial3D_yi2he")
+
+[node name="BezierCurve" parent="shittyTV" index="6"]
+material_override = ExtResource("5_5hbvg")
+
+[editable path="shittyTV"]
