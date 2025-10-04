@@ -195,6 +195,7 @@ func die() -> void:
 	g_radius.position = position
 	g_radius.position.y = floori(g_radius.position.y)
 	collision_mask -= 8
+	collision_mask += 16
 	if grab.get_child_count() > 0:
 		_drop_cube()
 
@@ -211,6 +212,7 @@ func revive() -> void:
 	g_radius.despawn()
 	i_time = I_TIME
 	collision_mask += 8
+	collision_mask -= 16
 
 
 func _on_hazard_enter(_body:Node3D) -> void:

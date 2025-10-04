@@ -825,6 +825,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31, 0)
 [node name="SpringArm3D" type="SpringArm3D" parent="SpringArm3D"]
 process_physics_priority = -2
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+collision_mask = 9
 shape = SubResource("SphereShape3D_vmdr7")
 spring_length = 0.453
 

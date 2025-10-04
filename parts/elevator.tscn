@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bhwyn1cfs5vly"]
+[gd_scene load_steps=21 format=3 uid="uid://bhwyn1cfs5vly"]
 
 [ext_resource type="Material" uid="uid://dl7fbxot1sjwy" path="res://textures/mat/floor.tres" id="1_1hduy"]
 [ext_resource type="Script" uid="uid://bq8u6urke1cgk" path="res://scripts/elevator.gd" id="1_4d42w"]
@@ -10,6 +10,7 @@
 [ext_resource type="Material" uid="uid://opt20r3lh406" path="res://textures/mat/metal1.tres" id="9_4t4kd"]
 [ext_resource type="AudioStream" uid="uid://bysox8qvsf4gh" path="res://sound/607310__lorefold__rotating-tank-turret-planetary-electric-motor.wav" id="9_i7b7m"]
 [ext_resource type="AudioStream" uid="uid://cw7lobmld2v8y" path="res://sound/119448__lmbubec__elevator-ding.wav" id="10_1g4w5"]
+[ext_resource type="PackedScene" uid="uid://ckcbqstup7kfk" path="res://parts/grill.tscn" id="11_1g4w5"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_a1a78"]
 size = Vector3(2, 0.2, 2)
@@ -438,5 +439,8 @@ shape = SubResource("BoxShape3D_i7b7m")
 libraries = {
 &"": SubResource("AnimationLibrary_a1a78")
 }
+
+[node name="grill" parent="." instance=ExtResource("11_1g4w5")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1, -3.5)
 
 [connection signal="body_entered" from="car/Area3D" to="." method="_on_area_3d_body_entered"]
