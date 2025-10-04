@@ -321,19 +321,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 7)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 5.5)
 
 [node name="cubeButton" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("8_uu8qo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 2)
-connections = [NodePath("../antlines-s2"), NodePath("../door")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 7)
+connections = [NodePath("../antlines-s2"), NodePath("../door"), NodePath("../antlines-s15"), NodePath("../antlines-s16"), NodePath("../antlines-s17")]
 
 [node name="cubeButton2" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("8_uu8qo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 4.5)
-connections = [NodePath("../door2"), NodePath("../antlines-s3"), NodePath("../antlines-s4"), NodePath("../antlines-w"), NodePath("../antlines-w2"), NodePath("../antlines-s5"), NodePath("../antlines-s6"), NodePath("../antlines-c2"), NodePath("../antlines-s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 2)
+connections = [NodePath("../door2"), NodePath("../antlines-s3"), NodePath("../antlines-s4"), NodePath("../antlines-w"), NodePath("../antlines-w2"), NodePath("../antlines-s5"), NodePath("../antlines-s6"), NodePath("../antlines-c2"), NodePath("../antlines-s"), NodePath("../antlines-c4"), NodePath("../antlines-s13"), NodePath("../antlines-s14")]
 
 [node name="antlines-s2" parent="." instance=ExtResource("11_x5ghr")]
-transform = Transform3D(-5.040527e-08, 0, 1, 0, 1, 0, -1.1531382, 0, -4.371139e-08, -4.7, 0, 1.5)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.7, 0, 6.5)
+
+[node name="antlines-s15" parent="." instance=ExtResource("11_x5ghr")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.7, 0, 4.5)
+
+[node name="antlines-s16" parent="." instance=ExtResource("11_x5ghr")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.7, 0, 2.5)
 
 [node name="pedistalButton" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("16_k7ksp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -2)
-connections = [NodePath("../dropper"), NodePath("../antlines-s8"), NodePath("../antlines-s9"), NodePath("../antlines-c3"), NodePath("../antlines-s7"), NodePath("../antlines-w3"), NodePath("../antlines-s10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 0)
+connections = [NodePath("../dropper"), NodePath("../antlines-s7"), NodePath("../antlines-w3")]
 
 [node name="pedistalButton2" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("16_k7ksp")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.5, 0, -2)
@@ -392,25 +398,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 3, 2)
 slot2 = NodePath("../cube")
 
 [node name="cube" parent="." instance=ExtResource("13_aq0d2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.467862, 3.5106933, 2.0901783)
-
-[node name="antlines-s8" parent="." instance=ExtResource("11_x5ghr")]
-transform = Transform3D(-1, -6.642445e-16, 8.7422784e-08, 0, 1, 7.1054274e-15, -8.742277e-08, 1.5196143e-08, -1, -1.5999999, 3.0252154, -1.6352481)
-
-[node name="antlines-s9" parent="." instance=ExtResource("11_x5ghr")]
-transform = Transform3D(-1.3694538, -6.642445e-16, 8.742278e-08, 8.4703295e-22, 1, 2.1316282e-14, -1.1972145e-07, 1.5196143e-08, -0.99999994, -3.5999994, 3.0252154, -1.6352481)
-
-[node name="antlines-c3" parent="." instance=ExtResource("10_cbgmi")]
-transform = Transform3D(-1, 6.642445e-16, -8.7422784e-08, 0, 1, 4.2632564e-14, 8.742277e-08, 1.5196143e-08, -1, -6.354658, 3.0210547, -1.643319)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 3.5, 2)
 
 [node name="antlines-s7" parent="." instance=ExtResource("11_x5ghr")]
-transform = Transform3D(1.6251686e-22, 1.0000001, -1.7763568e-15, 1.0465107, 0, 8.742278e-08, 9.148886e-08, 0, -1, -0.7121186, 0, -1.63638)
+transform = Transform3D(1.6251686e-22, 1.0000001, -1.7763568e-15, 1.0465107, 0, 8.742278e-08, 9.148886e-08, 0, -1, -7.7121186, 0, 0.36362004)
 
 [node name="antlines-w3" parent="." instance=ExtResource("12_tqv5a")]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.63387936, 2.1033015, -1.6403592)
-
-[node name="antlines-s10" parent="." instance=ExtResource("11_x5ghr")]
-transform = Transform3D(-5.876192e-08, 0, -1, 0, 1, 0, 1.344316, 0, -4.371139e-08, -7.844986, 3.024636, -1.1332724)
+transform = Transform3D(1.9106855e-15, 5.212982e-08, 1, 1, -5.212982e-08, 0, 4.371139e-08, 1.1925913, -4.371139e-08, -7.665026, 2.0889826, 0.33268642)
 
 [node name="dropper2" parent="." node_paths=PackedStringArray("slot2") instance=ExtResource("15_d2xr8")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 4, 3, 1)
@@ -473,6 +467,18 @@ material_override = SubResource("StandardMaterial3D_j0hcr")
 material_override = ExtResource("28_61ant")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Tv"]
+
+[node name="antlines-c4" parent="." instance=ExtResource("10_cbgmi")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7, 0, 3)
+
+[node name="antlines-s14" parent="." instance=ExtResource("11_x5ghr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 4.5)
+
+[node name="antlines-s13" parent="." instance=ExtResource("12_172fc")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7, 0, 2)
+
+[node name="antlines-s17" parent="." instance=ExtResource("12_172fc")]
+transform = Transform3D(-5.6698784e-08, 0, 1, 0, 1, 0, -1.297117, 0, -4.371139e-08, -4.7, 0, 0.5)
 
 [editable path="GLeNNSet"]
 [editable path="GLeNNSet/Node3D/GLeNN"]
