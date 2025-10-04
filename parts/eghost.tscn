@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr5ewhfuygsxd"]
+
+[ext_resource type="PackedScene" uid="uid://w5455xwwg3xq" path="res://models/EggBertGhost.blend" id="1_0j0qh"]
+[ext_resource type="Material" uid="uid://bwxqtwlb5igcf" path="res://models/Ghost.tres" id="2_n37ka"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="EggBertGhost" parent="." instance=ExtResource("1_0j0qh")]
+
+[node name="Plane" parent="EggBertGhost" index="0"]
+material_override = ExtResource("2_n37ka")
+
+[editable path="EggBertGhost"]
