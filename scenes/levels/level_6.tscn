@@ -406,12 +406,16 @@ transform = Transform3D(1.6251686e-22, 1.0000001, -1.7763568e-15, 1.0465107, 0, 
 [node name="antlines-w3" parent="." instance=ExtResource("12_tqv5a")]
 transform = Transform3D(1.9106855e-15, 5.212982e-08, 1, 1, -5.212982e-08, 0, 4.371139e-08, 1.1925913, -4.371139e-08, -7.665026, 2.0889826, 0.33268642)
 
-[node name="dropper2" parent="." node_paths=PackedStringArray("slot2") instance=ExtResource("15_d2xr8")]
+[node name="dropper2" parent="." node_paths=PackedStringArray("slot1", "slot2") instance=ExtResource("15_d2xr8")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 4, 3, 1)
+slot1 = NodePath("../cube3")
 slot2 = NodePath("../cube2")
 
 [node name="cube2" parent="." instance=ExtResource("13_aq0d2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.535461, 3.4425664, 0.9400552)
+
+[node name="cube3" parent="." instance=ExtResource("13_aq0d2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.535461, 0.25950295, 0.9400552)
 
 [node name="antlines-s11" parent="." instance=ExtResource("12_172fc")]
 transform = Transform3D(-4.8028543e-08, 0, -1, 0, 1, 0, 1.098765, 0, -4.371139e-08, 3.6, 0, -1.5)
