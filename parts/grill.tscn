@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://ckcbqstup7kfk"]
+
+[ext_resource type="Shader" uid="uid://cjy6o3jfp7x3v" path="res://textures/mat/grill.tres" id="1_7s7ye"]
+[ext_resource type="Script" uid="uid://b06xwuio18pyn" path="res://scripts/grill.gd" id="1_rwna6"]
+[ext_resource type="Material" uid="uid://4727m3inrkcd" path="res://textures/mat/ceil.tres" id="2_1l6e4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1l6e4"]
+render_priority = 0
+shader = ExtResource("1_7s7ye")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rwna6"]
+orientation = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rqpxe"]
+size = Vector3(0.09472656, 2, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rwna6"]
+size = Vector3(0.1, 1.8, 0.1)
+
+[node name="grill" type="Node3D"]
+script = ExtResource("1_rwna6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_1l6e4")
+mesh = SubResource("PlaneMesh_rwna6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_rqpxe")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 255
+collision_mask = 255
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_rqpxe")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.95)
+material_override = ExtResource("2_1l6e4")
+mesh = SubResource("BoxMesh_rwna6")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.95)
+material_override = ExtResource("2_1l6e4")
+mesh = SubResource("BoxMesh_rwna6")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
