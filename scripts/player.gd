@@ -178,8 +178,8 @@ func _drop_cube() -> void:
 	obj.axis_lock_linear_x = false
 	obj.axis_lock_linear_y = false
 	obj.axis_lock_linear_z = false
-	obj.collision_layer = 0b1
-	obj.collision_mask = 0b1
+	obj.collision_layer = 9
+	obj.collision_mask = 9
 	parent.add_child(obj)
 	obj.global_transform = trans
 
