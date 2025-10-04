@@ -1,11 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://dl6dp6qe57607"]
+[gd_scene load_steps=28 format=3 uid="uid://dl6dp6qe57607"]
 
 [ext_resource type="PackedScene" uid="uid://bbv4l13q3bvuv" path="res://parts/player.tscn" id="1_ra442"]
 [ext_resource type="Material" uid="uid://dl7fbxot1sjwy" path="res://textures/mat/floor.tres" id="1_tv7cl"]
+[ext_resource type="Material" uid="uid://bywjyggux4ylf" path="res://textures/mat/wall1.tres" id="2_1yj8c"]
 [ext_resource type="PackedScene" uid="uid://pr1y0ym28d45" path="res://parts/pause.tscn" id="2_fiq81"]
 [ext_resource type="PackedScene" uid="uid://bqa6ipcu8tjv3" path="res://scenes/ui.tscn" id="2_l37oo"]
 [ext_resource type="Material" uid="uid://4727m3inrkcd" path="res://textures/mat/ceil.tres" id="2_r88tb"]
 [ext_resource type="PackedScene" uid="uid://deb6pjoy65r7i" path="res://parts/push_box.tscn" id="3_l37oo"]
+[ext_resource type="Material" uid="uid://cxhfxnk1s24tq" path="res://textures/mat/wall2.tres" id="3_ndlae"]
 [ext_resource type="PackedScene" uid="uid://cgl30y8efitgy" path="res://parts/metal_box.tscn" id="4_fiq81"]
 [ext_resource type="PackedScene" uid="uid://c483fpshkfy18" path="res://parts/death_plane.tscn" id="4_ibugp"]
 [ext_resource type="Environment" uid="uid://bh0ehhyvsaw3b" path="res://resources/enviro.tres" id="4_qpwj6"]
@@ -13,9 +15,41 @@
 [ext_resource type="PackedScene" uid="uid://06mqlf4bidrk" path="res://parts/ctrl_popup.tscn" id="9_3p04p"]
 [ext_resource type="PackedScene" uid="uid://bhwyn1cfs5vly" path="res://parts/elevator.tscn" id="10_qsp8v"]
 [ext_resource type="Script" uid="uid://bcn8oydqfqle2" path="res://scripts/trigger.gd" id="11_nt80m"]
+[ext_resource type="PackedScene" uid="uid://dywd8de8obr3m" path="res://parts/GLeNN_set.tscn" id="16_lkn2k"]
+[ext_resource type="PackedScene" uid="uid://1klio28htdt1" path="res://models/shittyTV.blend" id="17_sbygb"]
+[ext_resource type="Texture2D" uid="uid://clfhq27q5rfht" path="res://textures/TVbodyTexture.png" id="18_5niy6"]
+[ext_resource type="Material" uid="uid://opt20r3lh406" path="res://textures/mat/metal1.tres" id="19_wikm6"]
+[ext_resource type="Texture2D" uid="uid://bjyrnpr2ly8ss" path="res://textures/TVplugTexture.png" id="20_1c1qw"]
+[ext_resource type="Material" uid="uid://d36wg05jdnij" path="res://textures/mat/darkgreyplastic.tres" id="21_1a10c"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_brxtv"]
 size = Vector3(7.565979, 2.230957, 6.3917236)
+
+[sub_resource type="GDScript" id="GDScript_mx6s3"]
+script/source = "extends Node3D
+
+
+@export var screen:BaseMaterial3D
+
+
+func _ready() -> void:
+	$shittyTV/Plane.material_override = screen
+"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_o7j4k"]
+viewport_path = NodePath("GLeNNSet")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7d3nu"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_o7j4k")
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_o7j4k")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r6ket"]
+albedo_texture = ExtResource("18_5niy6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xworo"]
+albedo_texture = ExtResource("20_1c1qw")
 
 [node name="Level2" type="Node3D"]
 
@@ -28,32 +62,59 @@ size = Vector3(23, 0.5, 16)
 material = ExtResource("1_tv7cl")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 4, -5)
-size = Vector3(1, 8, 6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 4.5, -5)
+size = Vector3(1, 7, 6)
+material = ExtResource("2_1yj8c")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 4, 10)
-size = Vector3(10, 8, 8)
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 4, -7)
-size = Vector3(23, 8, 2)
-
-[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 4, -0.5)
-size = Vector3(1, 8, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 4.5, 10)
+size = Vector3(10, 7, 8)
+material = ExtResource("2_1yj8c")
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 4, 14)
-size = Vector3(1, 8, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5, 6.5)
+size = Vector3(10, 1, 1)
+material = ExtResource("3_ndlae")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 4.5, -7)
+size = Vector3(23, 7, 2)
+material = ExtResource("2_1yj8c")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 4.5, -1)
+size = Vector3(1, 7, 14)
+material = ExtResource("2_1yj8c")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0.5, -5)
+size = Vector3(1, 1, 6)
+material = ExtResource("3_ndlae")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.5, -7)
+size = Vector3(23, 1, 2)
+material = ExtResource("3_ndlae")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, -0.5)
+size = Vector3(1, 1, 15)
+material = ExtResource("3_ndlae")
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 4, 14.5)
-size = Vector3(14, 8, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 5.5, 14.5)
+size = Vector3(15, 5, 1)
+material = ExtResource("2_1yj8c")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 2.5, 14.5)
+size = Vector3(15, 1, 1)
+material = ExtResource("3_ndlae")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 9.5)
 size = Vector3(14, 2, 9)
+material = ExtResource("1_tv7cl")
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 7, 0)
@@ -147,7 +208,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11,
 entry = true
 
 [node name="elevator2" parent="." instance=ExtResource("10_qsp8v")]
-transform = Transform3D(1.1920929e-07, 0, 1, 0, 1, 0, -1, 0, 1.1920929e-07, 20.017193, 2, 9.849976)
+transform = Transform3D(1.1920929e-07, 0, 1, 0, 1, 0, -1, 0, 1.1920929e-07, 20, 2, 10)
 
 [node name="Trigger" type="Area3D" parent="." node_paths=PackedStringArray("connections")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.668352, 3.798007, 10.082188)
@@ -158,3 +219,46 @@ metadata/_custom_type_script = "uid://bcn8oydqfqle2"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Trigger"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41384888, -0.6154785, -0.4491577)
 shape = SubResource("BoxShape3D_brxtv")
+
+[node name="GLeNNSet" parent="." instance=ExtResource("16_lkn2k")]
+
+[node name="Node3D" parent="GLeNNSet" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.529106)
+
+[node name="Cube_002" parent="GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.6259641, 0.7798516, 0, -0.7798516, 0.6259641, 0, 0.9200001, 0.05000013)
+
+[node name="Tv" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 10.6, 2.3, -5.7)
+script = SubResource("GDScript_mx6s3")
+screen = SubResource("StandardMaterial3D_7d3nu")
+
+[node name="shittyTV" parent="Tv" instance=ExtResource("17_sbygb")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="Cube_001" parent="Tv/shittyTV" index="0"]
+material_override = SubResource("StandardMaterial3D_r6ket")
+
+[node name="Cylinder" parent="Tv/shittyTV" index="1"]
+material_override = ExtResource("19_wikm6")
+
+[node name="Cube" parent="Tv/shittyTV" index="2"]
+material_override = ExtResource("19_wikm6")
+
+[node name="Cube_002" parent="Tv/shittyTV" index="3"]
+material_override = ExtResource("19_wikm6")
+
+[node name="Cube_003" parent="Tv/shittyTV" index="4"]
+material_override = ExtResource("19_wikm6")
+
+[node name="Cube_004" parent="Tv/shittyTV" index="5"]
+material_override = SubResource("StandardMaterial3D_xworo")
+
+[node name="BezierCurve" parent="Tv/shittyTV" index="6"]
+material_override = ExtResource("21_1a10c")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Tv"]
+
+[editable path="GLeNNSet"]
+[editable path="GLeNNSet/Node3D/GLeNN"]
+[editable path="Tv/shittyTV"]
