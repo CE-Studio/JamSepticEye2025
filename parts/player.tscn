@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bbv4l13q3bvuv"]
+[gd_scene load_steps=32 format=3 uid="uid://bbv4l13q3bvuv"]
 
 [ext_resource type="Script" uid="uid://bt8y45khvum1b" path="res://scripts/player.gd" id="1_vnk1p"]
 [ext_resource type="PackedScene" uid="uid://cjper3lh65ply" path="res://models/Eggbert.blend" id="2_aaff8"]
@@ -7,6 +7,9 @@
 [ext_resource type="AudioStream" uid="uid://dyr3dmpsb3klc" path="res://sound/steps/Step3.ogg" id="5_vmdr7"]
 [ext_resource type="AudioStream" uid="uid://k3h40oxfachc" path="res://sound/steps/Step4.ogg" id="6_nej8a"]
 [ext_resource type="AudioStream" uid="uid://bjp8kmk4b4pvy" path="res://sound/Crack.ogg" id="7_48q2l"]
+[ext_resource type="Script" uid="uid://b4drpgq4auxgg" path="res://parts/eghost.gd" id="9_48q2l"]
+[ext_resource type="PackedScene" uid="uid://w5455xwwg3xq" path="res://models/EggBertGhost.blend" id="9_t740l"]
+[ext_resource type="Material" uid="uid://bwxqtwlb5igcf" path="res://models/Ghost.tres" id="10_ho1wb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4lalg"]
 radius = 0.3
@@ -819,6 +822,15 @@ bones/9/scale = Vector3(1.0000007, 0.9999996, 1)
 bones/10/rotation = Quaternion(-0.0005523414, 1.5294383e-08, 8.640735e-10, 0.9999999)
 bones/10/scale = Vector3(1.0000012, 0.9999988, 1)
 
+[node name="Ghost" type="Node3D" parent="body"]
+transform = Transform3D(0.5, 0, -8.742279e-08, 0, 0.5, 0, 8.742279e-08, 0, 0.5, 0, 0, 0)
+script = ExtResource("9_48q2l")
+
+[node name="EggBertGhost" parent="body/Ghost" instance=ExtResource("9_t740l")]
+
+[node name="Plane" parent="body/Ghost/EggBertGhost" index="0"]
+material_override = ExtResource("10_ho1wb")
+
 [node name="SpringArm3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31, 0)
 
@@ -902,3 +914,4 @@ shape = SubResource("CapsuleShape3D_vh72h")
 [connection signal="area_exited" from="HazardBox" to="." method="_on_hazard_exit"]
 
 [editable path="body/Eggbert"]
+[editable path="body/Ghost/EggBertGhost"]

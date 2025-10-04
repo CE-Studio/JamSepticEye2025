@@ -30,9 +30,14 @@ var die_y:float = 0.0
 @onready var body:Node3D = $body
 @onready var animtree:AnimationTree = $AnimationTree
 @onready var radius:PackedScene = preload("res://parts/ghost_radius.tscn")
+@onready var eggbert: Node3D = $body/Eggbert
+@onready var ghost: Node3D = $body/Ghost
+
+@onready var plane: MeshInstance3D = $body/Ghost/EggBertGhost/Plane
 
 
 func _ready() -> void:
+	ghost.hide()
 	body.top_level = true
 	instance = self
 
@@ -153,7 +158,7 @@ func _physics_process(delta: float) -> void:
 		var r_distance:float = position.distance_to(r_home)
 		if r_distance > g_radius.RADIUS:
 			position = position.move_toward(r_home, r_distance - g_radius.RADIUS)
-		
+
 		if Input.is_action_just_pressed("revive"):
 			revive()
 	
@@ -188,6 +193,8 @@ func die() -> void:
 	if dead:
 		return
 	dead = true
+	eggbert.hide()
+	ghost.show()
 	die_y = position.y
 	sfx_crack.play()
 	g_radius = radius.instantiate()
@@ -213,6 +220,8 @@ func revive() -> void:
 	i_time = I_TIME
 	collision_mask += 8
 	collision_mask -= 16
+	eggbert.show()
+	ghost.hide()
 
 
 func _on_hazard_enter(_body:Node3D) -> void:
