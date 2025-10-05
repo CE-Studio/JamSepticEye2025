@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dk6m416bxsdm4"]
+[gd_scene load_steps=19 format=3 uid="uid://dk6m416bxsdm4"]
 
 [ext_resource type="Material" uid="uid://dl7fbxot1sjwy" path="res://textures/mat/floor.tres" id="1_4ytvr"]
 [ext_resource type="Material" uid="uid://cxhfxnk1s24tq" path="res://textures/mat/wall2.tres" id="2_g3eks"]
@@ -8,9 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://prtp7g8fmn7" path="res://textures/Menu/Intro1.png" id="6_13sgg"]
 [ext_resource type="Script" uid="uid://dwrpdpj2enwnp" path="res://scripts/main_menu.gd" id="6_70i5f"]
 [ext_resource type="Texture2D" uid="uid://ryfdps7usrvn" path="res://textures/Menu/Play.png" id="6_i6lef"]
-[ext_resource type="Texture2D" uid="uid://lp6tvi6gccvi" path="res://textures/Menu/Intro2.png" id="7_i6lef"]
 [ext_resource type="Texture2D" uid="uid://cauptjxf04ev8" path="res://textures/Menu/Intro3.png" id="8_70i5f"]
 [ext_resource type="PackedScene" uid="uid://b66x15e8xjipt" path="res://scenes/options_panel.tscn" id="8_mj5lg"]
+[ext_resource type="Texture2D" uid="uid://ogsqbs500kwi" path="res://textures/Menu/intro2.svg" id="10_ufwb2"]
+[ext_resource type="Texture2D" uid="uid://drii6h0j3v0d6" path="res://textures/Menu/intro2a.png" id="11_6cdou"]
 
 [sub_resource type="Animation" id="Animation_4ytvr"]
 resource_name = "CamSpin"
@@ -351,14 +352,25 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -320.0
-offset_top = -240.0
-offset_right = 320.0
-offset_bottom = 240.0
+offset_left = -512.0
+offset_top = -207.0
+offset_right = 512.0
+offset_bottom = 207.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("7_i6lef")
+texture = ExtResource("10_ufwb2")
+
+[node name="TextureRect" type="TextureRect" parent="Control/Intro2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -152.0
+offset_right = 152.0
+offset_bottom = 56.0
+grow_horizontal = 2
+texture = ExtResource("11_6cdou")
 
 [node name="Intro3" type="TextureRect" parent="Control"]
 modulate = Color(1, 1, 1, 0)
