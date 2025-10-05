@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dfdiwov0mtumr"]
+[gd_scene load_steps=35 format=3 uid="uid://dfdiwov0mtumr"]
 
 [ext_resource type="PackedScene" uid="uid://bbv4l13q3bvuv" path="res://parts/player.tscn" id="1_5vn0v"]
 [ext_resource type="Material" uid="uid://dl7fbxot1sjwy" path="res://textures/mat/floor.tres" id="1_hsvsk"]
@@ -16,6 +16,282 @@
 [ext_resource type="PackedScene" uid="uid://06mqlf4bidrk" path="res://parts/ctrl_popup.tscn" id="10_glw47"]
 [ext_resource type="PackedScene" uid="uid://dps4pqkb56mxr" path="res://scenes/transition_trigger.tscn" id="11_4wsov"]
 [ext_resource type="PackedScene" uid="uid://bhwyn1cfs5vly" path="res://parts/elevator.tscn" id="13_fcb7b"]
+[ext_resource type="PackedScene" uid="uid://dywd8de8obr3m" path="res://parts/GLeNN_set.tscn" id="17_0n65g"]
+[ext_resource type="PackedScene" uid="uid://1klio28htdt1" path="res://models/shittyTV.blend" id="18_uyomx"]
+[ext_resource type="Texture2D" uid="uid://clfhq27q5rfht" path="res://textures/TVbodyTexture.png" id="19_io455"]
+[ext_resource type="Material" uid="uid://opt20r3lh406" path="res://textures/mat/metal1.tres" id="20_suy3i"]
+[ext_resource type="Texture2D" uid="uid://bjyrnpr2ly8ss" path="res://textures/TVplugTexture.png" id="21_8hw10"]
+[ext_resource type="Material" uid="uid://d36wg05jdnij" path="res://textures/mat/darkgreyplastic.tres" id="22_1s8bw"]
+[ext_resource type="AudioStream" uid="uid://dklxww670ff7u" path="res://sound/lines/lvl4.mp3" id="23_0n65g"]
+[ext_resource type="Script" uid="uid://bp6vojp8kqeec" path="res://scripts/trigger_animation_player.gd" id="24_dorgx"]
+[ext_resource type="Script" uid="uid://bcn8oydqfqle2" path="res://scripts/trigger.gd" id="25_y0jd0"]
+
+[sub_resource type="GDScript" id="GDScript_4luak"]
+script/source = "extends Node3D
+
+
+@export var screen:BaseMaterial3D
+
+
+func _ready() -> void:
+	$shittyTV/Plane.material_override = screen
+"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_o7j4k"]
+viewport_path = NodePath("GLeNNSet")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6b6qc"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_o7j4k")
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_o7j4k")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4aa1a"]
+albedo_texture = ExtResource("19_io455")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jky1q"]
+albedo_texture = ExtResource("21_8hw10")
+
+[sub_resource type="Animation" id="Animation_mqh5v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.53541464, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.89442897, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002/Cube_003:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.4147989, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002/Cube_003/Cube_004:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 3.1415925)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002/Cube_003/Cube_005:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7h2jl"]
+resource_name = "speak"
+length = 5.5
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GLeNNSet/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [false],
+"method": &"stop"
+}, {
+"args": [&"idle", -1, 1.0, false],
+"method": &"play"
+}]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tv/AudioStreamPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("23_0n65g")
+}],
+"times": PackedFloat32Array(0.3)
+}
+tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.53541464, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.89442897, 0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002/Cube_003:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.4147989, 0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002/Cube_003/Cube_004:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 2.8, 3, 3.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 3.1415925), Vector3(0, 0, 3.1415925), Vector3(-0.2617994, -5.0266946e-15, 3.1415925), Vector3(0, 0, 3.1415925)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002/Cube_003/Cube_005:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 2.8, 3, 3.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0.2617994, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mqh5v"]
+_data = {
+&"RESET": SubResource("Animation_mqh5v"),
+&"speak": SubResource("Animation_7h2jl")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lbwwd"]
+size = Vector3(7.552124, 0.40429688, 21.726746)
 
 [node name="Level4" type="Node3D"]
 
@@ -213,3 +489,68 @@ entry = true
 [node name="elevator2" parent="." instance=ExtResource("13_fcb7b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2, 12)
 auto_on = true
+
+[node name="GLeNNSet" parent="." instance=ExtResource("17_0n65g")]
+
+[node name="Node3D" parent="GLeNNSet" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.529106)
+
+[node name="Cube_002" parent="GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.62596405, 0.7798515, 0, -0.7798515, 0.62596405, 0, 0.9200001, 0.05000013)
+
+[node name="Cube_004" parent="GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002/Cube_003" index="0"]
+transform = Transform3D(0.9999998, 1.5099579e-07, 0, -1.5099577e-07, 0.99999994, 0, 0, 0, -0.9999999, 0, 0.30000305, -0.01999998)
+
+[node name="Cube_005" parent="GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002/Cube_003" index="1"]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999964, 0, 0, 0, 0.99999964, 0, 0.29999924, 0.20000029)
+
+[node name="Tv" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, 11.700001, 4.1, -7.7)
+script = SubResource("GDScript_4luak")
+screen = SubResource("StandardMaterial3D_6b6qc")
+
+[node name="shittyTV" parent="Tv" instance=ExtResource("18_uyomx")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="Cube_001" parent="Tv/shittyTV" index="0"]
+material_override = SubResource("StandardMaterial3D_4aa1a")
+
+[node name="Cylinder" parent="Tv/shittyTV" index="1"]
+material_override = ExtResource("20_suy3i")
+
+[node name="Cube" parent="Tv/shittyTV" index="2"]
+material_override = ExtResource("20_suy3i")
+
+[node name="Cube_002" parent="Tv/shittyTV" index="3"]
+material_override = ExtResource("20_suy3i")
+
+[node name="Cube_003" parent="Tv/shittyTV" index="4"]
+material_override = ExtResource("20_suy3i")
+
+[node name="Cube_004" parent="Tv/shittyTV" index="5"]
+material_override = SubResource("StandardMaterial3D_jky1q")
+
+[node name="BezierCurve" parent="Tv/shittyTV" index="6"]
+material_override = ExtResource("22_1s8bw")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Tv"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mqh5v")
+}
+script = ExtResource("24_dorgx")
+to_play = &"speak"
+
+[node name="Trigger2" type="Area3D" parent="." node_paths=PackedStringArray("connections")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.731654, 2.5380669, -0.52519274)
+script = ExtResource("25_y0jd0")
+connections = [NodePath("../AnimationPlayer")]
+metadata/_custom_type_script = "uid://bcn8oydqfqle2"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trigger2"]
+shape = SubResource("BoxShape3D_lbwwd")
+
+[editable path="GLeNNSet"]
+[editable path="GLeNNSet/Node3D/GLeNN"]
+[editable path="Tv/shittyTV"]
