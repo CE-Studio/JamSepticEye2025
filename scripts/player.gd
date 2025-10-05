@@ -208,6 +208,7 @@ func die() -> void:
 	collision_mask += 16
 	if grab.get_child_count() > 0:
 		_drop_cube()
+	MusicHandler.set_mus_dead()
 
 
 func revive() -> void:
@@ -226,6 +227,7 @@ func revive() -> void:
 	eggbert.show()
 	ghost.hide()
 	health = MAX_HEALTH
+	MusicHandler.set_mus_live()
 
 
 func _on_hazard_enter(_body:Node3D) -> void:
