@@ -42,7 +42,7 @@ func _process(delta):
 			spinup = false
 	else:
 		point.look_at(Player.instance.global_position + Vector3(0, 0.3, 0), Vector3.UP, true)
-		if point.is_colliding():
+		if point.is_colliding() and not Player.instance.dead:
 			if point.get_collider() == Player.instance:
 				spinup = true
 				if rounds > 0 and spinspeed == 15:

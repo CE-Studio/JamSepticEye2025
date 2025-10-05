@@ -75,6 +75,7 @@ script = ExtResource("1_r1spa")
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 1, 0)
 visible = false
+layers = 512
 billboard = 1
 no_depth_test = true
 fixed_size = true
