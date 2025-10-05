@@ -46,12 +46,13 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
+		var sen:int = ProjectSettings.get_setting("game/mouse_sensitivity")
 		if Input.get_action_raw_strength("rotate") > 0.1:
 			if grab.get_child_count() > 0:
 				grab.get_child(0).apply_torque(Vector3(event.relative.y, event.relative.x, 0) / 10)
 		else:
-			rotate_y(event.relative.x / -300)
-			cam.rotate_x(event.relative.y / -300)
+			rotate_y(event.relative.x / sen)
+			cam.rotate_x(event.relative.y / sen)
 			cam.rotation_degrees.x = clampf(cam.rotation_degrees.x, -90, 90)
 	elif event.is_action_pressed("interact"):
 		print("interact")

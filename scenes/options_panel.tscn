@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://b66x15e8xjipt"]
+
+[ext_resource type="Script" uid="uid://vycqu1p4qi6i" path="res://scripts/options_panel.gd" id="1_npixg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_npixg"]
+bg_color = Color(0, 0, 0, 0.22352941)
+corner_radius_top_left = 24
+
+[node name="OptionsPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_npixg")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -291.0
+offset_top = -227.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(291, 227)
+theme_override_styles/panel = SubResource("StyleBoxFlat_npixg")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="LSen" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Mouse sensitivity"
+
+[node name="SSen" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+min_value = -500.0
+max_value = -100.0
+value = -300.0
+
+[node name="LMusic" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Music volume"
+
+[node name="SMusic" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 20.0
+value = 15.0
+
+[node name="LSound" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Sound volume"
+
+[node name="SSound" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 20.0
+value = 15.0
+
+[connection signal="drag_ended" from="PanelContainer/MarginContainer/VBoxContainer/SSen" to="." method="_on_sen_edit"]
+[connection signal="drag_ended" from="PanelContainer/MarginContainer/VBoxContainer/SMusic" to="." method="_on_music_edit"]
+[connection signal="drag_ended" from="PanelContainer/MarginContainer/VBoxContainer/SSound" to="." method="_on_sound_edit"]
