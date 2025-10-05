@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cauptjxf04ev8"
-path.s3tc="res://.godot/imported/Intro3.png-5dc18b64290ee5a753ef4ff8f1cf286e.s3tc.ctex"
+uid="uid://oj0rfxbbjyy4"
+path.bptc="res://.godot/imported/blueprint.png-088c81c1224ce9fe5a3576ea6af6d46d.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,13 +11,13 @@ metadata={
 
 [deps]
 
-source_file="res://textures/Menu/Intro3.png"
-dest_files=["res://.godot/imported/Intro3.png-5dc18b64290ee5a753ef4ff8f1cf286e.s3tc.ctex"]
+source_file="res://textures/blueprint.png"
+dest_files=["res://.godot/imported/blueprint.png-088c81c1224ce9fe5a3576ea6af6d46d.bptc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://51uvs5ywgj60"]
+[gd_scene load_steps=36 format=3 uid="uid://51uvs5ywgj60"]
 
 [ext_resource type="Material" uid="uid://dl7fbxot1sjwy" path="res://textures/mat/floor.tres" id="1_bvftm"]
 [ext_resource type="PackedScene" uid="uid://bbv4l13q3bvuv" path="res://parts/player.tscn" id="1_pafwe"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://bjyrnpr2ly8ss" path="res://textures/TVplugTexture.png" id="27_mcllb"]
 [ext_resource type="Material" uid="uid://d36wg05jdnij" path="res://textures/mat/darkgreyplastic.tres" id="28_61ant"]
 [ext_resource type="PackedScene" uid="uid://ckcbqstup7kfk" path="res://parts/grill.tscn" id="29_lynn5"]
+[ext_resource type="Texture2D" uid="uid://oj0rfxbbjyy4" path="res://textures/blueprint.png" id="30_4xx2j"]
 
 [sub_resource type="GDScript" id="GDScript_nryth"]
 script/source = "extends Node3D
@@ -482,6 +483,13 @@ transform = Transform3D(-5.6698784e-08, 0, 1, 0, 1, 0, -1.297117, 0, -4.371139e-
 
 [node name="grill" parent="." instance=ExtResource("29_lynn5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1, -4)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-0.9963884, 0.08491262, 8.710704e-08, 0.08491262, 0.9963884, -7.423297e-09, -8.742278e-08, 0, -1, -5.450111, 2.1935132, 7.9263144)
+pixel_size = 0.0013
+transparent = false
+double_sided = false
+texture = ExtResource("30_4xx2j")
 
 [editable path="GLeNNSet"]
 [editable path="GLeNNSet/Node3D/GLeNN"]
