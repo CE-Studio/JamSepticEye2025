@@ -1,11 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyxjjj0tf8rci"]
+[gd_scene load_steps=3 format=3 uid="uid://dyxjjj0tf8rci"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wgaqo"]
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_0vslm"]
-material = SubResource("StandardMaterial3D_wgaqo")
-size = Vector3(1, 0.5, 1)
+[ext_resource type="PackedScene" uid="uid://cq77imkh8rg7" path="res://models/Spikes.blend" id="1_0vslm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cborf"]
 size = Vector3(1, 0.5, 1)
@@ -14,9 +9,7 @@ size = Vector3(1, 0.5, 1)
 collision_layer = 4
 collision_mask = 0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
-mesh = SubResource("BoxMesh_0vslm")
+[node name="Spikes" parent="." instance=ExtResource("1_0vslm")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
