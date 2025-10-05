@@ -9,6 +9,7 @@ static var bullet:PackedScene = preload("res://parts/bullet.tscn")
 @export var trackingOther := false
 @export var others:Array[NodePath]
 @export var lookID:int = 0
+@export var unlimited := false
 
 @onready var point:RayCast3D = $"base/mountarm/head/gun body/RayCast3D"
 @onready var mount:MeshInstance3D = $base/mountarm
@@ -47,7 +48,8 @@ func _process(delta):
 				if rounds > 0 and spinspeed == 15:
 					firetime += delta
 					if firetime >= 0.1:
-						rounds -= 1
+						if not unlimited:
+							rounds -= 1
 						firetime -= 0.1
 						var b:RigidBody3D = bullet.instantiate()
 						worldspace.add_child(b)
