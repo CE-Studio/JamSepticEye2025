@@ -298,8 +298,23 @@ layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 0
+
+[node name="LinkButton" type="LinkButton" parent="Control/ButtonLayer"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -28.0
+offset_right = 378.0
+offset_bottom = 12.0
+grow_vertical = 0
+text = "© CE-Studo, Lasagna Bones, 2025 (GNU AGPL v3)"
+uri = "https://www.gnu.org/licenses/agpl-3.0.en.html#license-text"
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 1
