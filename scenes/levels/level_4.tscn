@@ -395,6 +395,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 2.5, 2)
 [node name="MetalBox" parent="." instance=ExtResource("2_um320")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 2.5, 4.5)
 
+[node name="MetalBox2" parent="." instance=ExtResource("2_um320")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 2.5, -4.5)
+
 [node name="Glass" parent="." instance=ExtResource("1_um320")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 3, 0.5)
 
