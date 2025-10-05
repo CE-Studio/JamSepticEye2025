@@ -24,6 +24,8 @@ radius = 0.0186506
 height = 0.15988
 
 [node name="Bullet" type="RigidBody3D" groups=["bullet", "pushable"]]
+collision_layer = 5
+collision_mask = 5
 physics_material_override = SubResource("PhysicsMaterial_5h304")
 angular_damp = 14.131
 
