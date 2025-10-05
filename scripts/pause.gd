@@ -11,6 +11,8 @@ func _input(event: InputEvent) -> void:
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			get_tree().paused = true
+			show()
 		else:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			get_tree().paused = false
+			hide()

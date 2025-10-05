@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://51uvs5ywgj60"]
+[gd_scene load_steps=43 format=3 uid="uid://51uvs5ywgj60"]
 
 [ext_resource type="Material" uid="uid://dl7fbxot1sjwy" path="res://textures/mat/floor.tres" id="1_bvftm"]
 [ext_resource type="PackedScene" uid="uid://bbv4l13q3bvuv" path="res://parts/player.tscn" id="1_pafwe"]
@@ -30,6 +30,9 @@
 [ext_resource type="Material" uid="uid://d36wg05jdnij" path="res://textures/mat/darkgreyplastic.tres" id="28_61ant"]
 [ext_resource type="PackedScene" uid="uid://ckcbqstup7kfk" path="res://parts/grill.tscn" id="29_lynn5"]
 [ext_resource type="Texture2D" uid="uid://oj0rfxbbjyy4" path="res://textures/blueprint.png" id="30_4xx2j"]
+[ext_resource type="AudioStream" uid="uid://d2omnoqkl07ed" path="res://sound/lines/lvl7.mp3" id="31_rt60r"]
+[ext_resource type="Script" uid="uid://bp6vojp8kqeec" path="res://scripts/trigger_animation_player.gd" id="32_qx2c0"]
+[ext_resource type="Script" uid="uid://bcn8oydqfqle2" path="res://scripts/trigger.gd" id="33_2nv2l"]
 
 [sub_resource type="GDScript" id="GDScript_nryth"]
 script/source = "extends Node3D
@@ -56,6 +59,247 @@ albedo_texture = ExtResource("25_d2xr8")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0hcr"]
 albedo_texture = ExtResource("27_mcllb")
+
+[sub_resource type="Animation" id="Animation_mqh5v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.53541464, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.89442897, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002/Cube_003:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.4147989, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002/Cube_003/Cube_004:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 3.1415925)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002/Cube_003/Cube_005:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7h2jl"]
+resource_name = "speak"
+length = 7.5
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GLeNNSet/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 7.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [false],
+"method": &"stop"
+}, {
+"args": [&"idle", -1, 1.0, false],
+"method": &"play"
+}]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tv/AudioStreamPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("31_rt60r")
+}],
+"times": PackedFloat32Array(0.3)
+}
+tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3.3, 3.5, 4.8, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, -0.52359885, 0), Vector3(0, -0.52359885, 0), Vector3(0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.53541464, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 3.3, 3.5, 4.8, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.89442897, 0, 0), Vector3(-0.89442897, 0, 0), Vector3(-1.0689619, 0, 0), Vector3(-1.0689619, 0, 0), Vector3(-0.89442897, 0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002/Cube_003:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 3.3, 3.5, 4.8, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.4147989, 0, 0), Vector3(-1.4147989, 0, 0), Vector3(-1.6765982, 0, 0), Vector3(-1.6765982, 0, 0), Vector3(-1.4147989, 0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002/Cube_003/Cube_004:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.1, 1.3000001, 1.5, 5.2, 5.4, 5.6, 5.9, 6.1, 7.1, 7.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 3.1415925), Vector3(0, 0, 3.1415925), Vector3(-0.2617994, 3.67804e-15, 3.1415925), Vector3(0, 0, 3.1415925), Vector3(0, 0, 3.1415925), Vector3(-0.2617994, 3.67804e-15, 3.1415925), Vector3(0, 0, 3.1415925), Vector3(0, 0, 3.1415925), Vector3(0.08726646, -1.3210419e-08, 3.1415925), Vector3(0.08726646, -1.3210419e-08, 3.1415925), Vector3(0, 0, 3.1415925)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002/Cube_003/Cube_005:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1.1, 1.3000001, 1.5, 5.2, 5.4, 5.6, 5.9, 6.1, 7.1, 7.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0.26179937, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0.26179937, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0.26179937, 0, 0), Vector3(0.26179937, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mqh5v"]
+_data = {
+&"RESET": SubResource("Animation_mqh5v"),
+&"speak": SubResource("Animation_7h2jl")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4qlpv"]
+size = Vector3(9.033203, 1.9765625, 21.726746)
 
 [node name="Level7" type="Node3D"]
 
@@ -435,8 +679,17 @@ entry = true
 [node name="Node3D" parent="GLeNNSet" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.529106)
 
+[node name="Cylinder" parent="GLeNNSet/Node3D/GLeNN/Cube" index="0"]
+transform = Transform3D(0.9999998, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0, 0, 0)
+
 [node name="Cube_002" parent="GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0.6259641, 0.7798516, 0, -0.7798516, 0.6259641, 0, 0.9200001, 0.05000013)
+transform = Transform3D(1, 0, 0, 0, 0.62596405, 0.77985156, 0, -0.77985156, 0.62596405, 0, 0.9200001, 0.05000019)
+
+[node name="Cube_004" parent="GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002/Cube_003" index="0"]
+transform = Transform3D(0.99999994, 1.5099582e-07, 0, -1.5099579e-07, 1.0000001, 0, 0, 0, -1, 0, 0.29999924, -0.019999504)
+
+[node name="Cube_005" parent="GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002/Cube_003" index="1"]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999998, 0, 0.29999733, 0.20000029)
 
 [node name="Tv" type="Node3D" parent="."]
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 3.7000003, 2.3, 2.8000002)
@@ -490,6 +743,25 @@ pixel_size = 0.0013
 transparent = false
 double_sided = false
 texture = ExtResource("30_4xx2j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mqh5v")
+}
+script = ExtResource("32_qx2c0")
+to_play = &"speak"
+
+[node name="Trigger2" type="Area3D" parent="." node_paths=PackedStringArray("connections")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1379597, 0.90357363, -0.5251932)
+collision_layer = 0
+monitorable = false
+script = ExtResource("33_2nv2l")
+connections = [NodePath("../AnimationPlayer")]
+metadata/_custom_type_script = "uid://bcn8oydqfqle2"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trigger2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22393799, 0, 0)
+shape = SubResource("BoxShape3D_4qlpv")
 
 [editable path="GLeNNSet"]
 [editable path="GLeNNSet/Node3D/GLeNN"]
