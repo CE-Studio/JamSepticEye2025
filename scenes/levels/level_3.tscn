@@ -494,7 +494,7 @@ shape = SubResource("BoxShape3D_5f5xw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.529106)
 
 [node name="Cube_002" parent="GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0.62596405, 0.7798515, 0, -0.7798515, 0.62596405, 0, 0.9200001, 0.05000013)
+transform = Transform3D(1, 0, 0, 0, 0.625964, 0.77985144, 0, -0.77985144, 0.625964, 0, 0.9200001, 0.05000013)
 
 [node name="Cube_004" parent="GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002/Cube_003" index="0"]
 transform = Transform3D(1, 1.5099579e-07, 0, -1.509958e-07, 0.99999994, 0, 0, 0, -0.99999994, 0, 0.29999995, -0.0200001)
