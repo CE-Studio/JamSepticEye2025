@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dk6m416bxsdm4"]
+[gd_scene load_steps=18 format=3 uid="uid://dk6m416bxsdm4"]
 
 [ext_resource type="Material" uid="uid://dl7fbxot1sjwy" path="res://textures/mat/floor.tres" id="1_4ytvr"]
 [ext_resource type="Material" uid="uid://cxhfxnk1s24tq" path="res://textures/mat/wall2.tres" id="2_g3eks"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ryfdps7usrvn" path="res://textures/Menu/Play.png" id="6_i6lef"]
 [ext_resource type="Texture2D" uid="uid://lp6tvi6gccvi" path="res://textures/Menu/Intro2.png" id="7_i6lef"]
 [ext_resource type="Texture2D" uid="uid://cauptjxf04ev8" path="res://textures/Menu/Intro3.png" id="8_70i5f"]
+[ext_resource type="PackedScene" uid="uid://b66x15e8xjipt" path="res://scenes/options_panel.tscn" id="8_mj5lg"]
 
 [sub_resource type="Animation" id="Animation_4ytvr"]
 resource_name = "CamSpin"
@@ -291,6 +292,14 @@ texture_pressed = ExtResource("6_i6lef")
 texture_hover = ExtResource("6_i6lef")
 texture_disabled = ExtResource("6_i6lef")
 texture_focused = ExtResource("6_i6lef")
+
+[node name="OptionsPanel" parent="Control/ButtonLayer" instance=ExtResource("8_mj5lg")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 1
