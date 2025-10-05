@@ -5,9 +5,9 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_6jr7v")
-shader_parameter/Amplitude = 0.145
-shader_parameter/Speed = 0.335
-shader_parameter/Frequency = 10.0
+shader_parameter/Amplitude = 0.5
+shader_parameter/Speed = 0.4
+shader_parameter/Frequency = 17.0
 shader_parameter/CFrequency = 3.0
 shader_parameter/Modifier = Vector3(1, 1, 1)
 shader_parameter/color = Color(1, 1, 1, 1)
