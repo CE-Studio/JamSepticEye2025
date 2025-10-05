@@ -1,11 +1,62 @@
-[gd_scene load_steps=2 format=3 uid="uid://pr1y0ym28d45"]
+[gd_scene load_steps=5 format=3 uid="uid://pr1y0ym28d45"]
 
 [ext_resource type="Script" uid="uid://x4ut8rbvwkjk" path="res://scripts/pause.gd" id="1_w8mte"]
+[ext_resource type="PackedScene" uid="uid://b66x15e8xjipt" path="res://scenes/options_panel.tscn" id="2_gujks"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mhvjj"]
+font_size = 64
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 16
+shadow_color = Color(0, 0, 0, 0.3529412)
+shadow_offset = Vector2(10, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ybvmt"]
+font_size = 32
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 16
+shadow_color = Color(0, 0, 0, 0.3529412)
+shadow_offset = Vector2(10, 5)
 
 [node name="Pause" type="Control"]
 process_mode = 3
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_w8mte")
+
+[node name="OptionsPanel" parent="." instance=ExtResource("2_gujks")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -828.0
+offset_top = -25.0
+offset_right = -828.0
+offset_bottom = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 215.0
+offset_right = 1170.0
+offset_bottom = 238.0
+text = "You are have become the PAused!"
+label_settings = SubResource("LabelSettings_mhvjj")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 346.0
+offset_right = 401.0
+offset_bottom = 434.0
+text = "Play with the buttons :3"
+label_settings = SubResource("LabelSettings_ybvmt")
