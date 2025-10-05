@@ -103,6 +103,7 @@ func _process(delta: float) -> void:
 	animtree["parameters/blend_position"] = blend
 	
 	if Input.is_action_just_pressed("restart"):
+		MusicHandler.set_mus_live()
 		get_tree().reload_current_scene.call_deferred()
 
 
