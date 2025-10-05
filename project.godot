@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="JamSepticEye2025"
+config/name="Teggsting"
 run/main_scene="uid://dk6m416bxsdm4"
 config/features=PackedStringArray("4.5", "Forward Plus")
 run/max_fps=60
