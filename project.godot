@@ -20,6 +20,7 @@ pushable=""
 heavy=""
 grab=""
 press=""
+bullet=""
 
 [input]
 

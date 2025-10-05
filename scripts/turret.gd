@@ -3,7 +3,7 @@ extends RigidBody3D
 class_name Turret
 
 
-static var rounds:int = 300
+var rounds:int = 50
 static var bullet:PackedScene = preload("res://parts/bullet.tscn")
 
 @export var trackingOther := false
