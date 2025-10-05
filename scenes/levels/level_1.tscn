@@ -51,6 +51,105 @@ albedo_texture = ExtResource("18_ndtll")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yi2he"]
 albedo_texture = ExtResource("20_mqh5v")
 
+[sub_resource type="Animation" id="Animation_mqh5v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.53541464, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.89442897, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002/Cube_003:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.4147989, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002/Cube_003/Cube_004:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 3.1415925)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002/Cube_003/Cube_005:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_7h2jl"]
 resource_name = "speak"
 length = 29.5
@@ -198,105 +297,6 @@ tracks/10/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0.26179937, 0, 0), Vector3(-5.960466e-08, 0, 0), Vector3(-5.960466e-08, 0, 0), Vector3(-0.17453296, 0, 0), Vector3(-0.17453296, 0, 0), Vector3(0.26179937, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(-0.17453296, 0, 0), Vector3(-0.17453296, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0.26179942, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(-0.17453296, 0, 0), Vector3(-0.17453296, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0.26179942, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0.26179942, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(-0.17453296, 0, 0), Vector3(0.26179942, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0.26179942, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0.26179942, 0, 0), Vector3(0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_mqh5v"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.53541464, 0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.89442897, 0, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002/Cube_003:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-1.4147989, 0, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002/Cube_003/Cube_004:rotation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 3.1415925)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002/Cube_003/Cube_005:rotation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mqh5v"]
 _data = {
 &"RESET": SubResource("Animation_mqh5v"),
@@ -441,7 +441,7 @@ transform = Transform3D(-5.373266e-09, 0.99241585, 0.12292601, 4.3379874e-08, 0.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.529106)
 
 [node name="Cube_002" parent="GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0.62596405, 0.7798515, 0, -0.7798515, 0.62596405, 0, 0.92000103, 0.050001144)
+transform = Transform3D(1, 0, 0, 0, 0.625964, 0.77985144, 0, -0.77985144, 0.625964, 0, 0.92000103, 0.050001144)
 
 [node name="Cube_003" parent="GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0.15536556, 0.9878574, 0, -0.98785716, 0.1553656, 0, 0.86000013, -0.060001373)
@@ -492,6 +492,8 @@ to_play = &"speak"
 
 [node name="Trigger" type="Area3D" parent="." node_paths=PackedStringArray("connections")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.174683, 1.8596697, -2.5106926)
+collision_layer = 0
+monitorable = false
 script = ExtResource("23_7h2jl")
 connections = [NodePath("../AnimationPlayer")]
 metadata/_custom_type_script = "uid://bcn8oydqfqle2"

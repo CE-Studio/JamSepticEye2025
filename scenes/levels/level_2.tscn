@@ -520,6 +520,8 @@ to_play = &"speak"
 
 [node name="Trigger2" type="Area3D" parent="." node_paths=PackedStringArray("connections")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5437646, 1.8596697, -0.5251932)
+collision_layer = 0
+monitorable = false
 script = ExtResource("11_nt80m")
 connections = [NodePath("../AnimationPlayer")]
 metadata/_custom_type_script = "uid://bcn8oydqfqle2"
