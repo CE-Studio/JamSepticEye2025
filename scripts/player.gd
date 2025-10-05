@@ -10,6 +10,7 @@ const AIRACCEL = 7.0
 const FORCE = 50
 const FALL_KILL_THRESHOLD:float = -8.5
 const I_TIME:float = 1.25
+const MAX_HEALTH:int = 6
 
 static var instance:Player
 
@@ -19,6 +20,7 @@ var g_radius:GhostRadius = null
 var i_time:float = 0.0
 var hazard_collisions:int = 0
 var die_y:float = 0.0
+var health:int = MAX_HEALTH
 
 @export var sfx_step:AudioStreamPlayer3D
 @export var sfx_crack:AudioStreamPlayer3D
@@ -222,10 +224,19 @@ func revive() -> void:
 	collision_mask -= 16
 	eggbert.show()
 	ghost.hide()
+	health = MAX_HEALTH
 
 
 func _on_hazard_enter(_body:Node3D) -> void:
 	hazard_collisions += 1
+
+
+func _on_bullet_collide(_body:Node3D) -> void:
+	if _body.is_in_group("bullet"):
+		health -= 1
+		if health <= 0:
+			die()
+	print(health)
 
 
 func _on_hazard_exit(_body:Node3D) -> void:

@@ -912,6 +912,7 @@ shape = SubResource("CapsuleShape3D_vh72h")
 
 [connection signal="area_entered" from="HazardBox" to="." method="_on_hazard_enter"]
 [connection signal="area_exited" from="HazardBox" to="." method="_on_hazard_exit"]
+[connection signal="body_entered" from="HazardBox" to="." method="_on_bullet_collide"]
 
 [editable path="body/Eggbert"]
 [editable path="body/Ghost/EggBertGhost"]
