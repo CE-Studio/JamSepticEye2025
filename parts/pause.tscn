@@ -21,6 +21,7 @@ shadow_offset = Vector2(10, 5)
 
 [node name="Pause" type="Control"]
 process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,16 +32,11 @@ script = ExtResource("1_w8mte")
 
 [node name="OptionsPanel" parent="." instance=ExtResource("2_gujks")]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -828.0
-offset_top = -25.0
-offset_right = -828.0
-offset_bottom = -25.0
-grow_horizontal = 0
+offset_left = 291.0
+offset_right = 291.0
 grow_vertical = 0
 
 [node name="Label" type="Label" parent="."]
