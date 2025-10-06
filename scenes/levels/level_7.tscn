@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://51uvs5ywgj60"]
+[gd_scene load_steps=47 format=3 uid="uid://51uvs5ywgj60"]
 
 [ext_resource type="Material" uid="uid://dl7fbxot1sjwy" path="res://textures/mat/floor.tres" id="1_bvftm"]
 [ext_resource type="PackedScene" uid="uid://bbv4l13q3bvuv" path="res://parts/player.tscn" id="1_pafwe"]
@@ -36,6 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://d3uov4m8hsxs5" path="res://parts/turret.tscn" id="34_qx2c0"]
 [ext_resource type="PackedScene" uid="uid://chwwd25ppdp6e" path="res://parts/portalpanel.tscn" id="35_4qlpv"]
 [ext_resource type="PackedScene" uid="uid://bphb32pm8vlsr" path="res://parts/signpanel.tscn" id="36_3bjve"]
+[ext_resource type="PackedScene" uid="uid://dps4pqkb56mxr" path="res://scenes/transition_trigger.tscn" id="37_3bjve"]
 
 [sub_resource type="GDScript" id="GDScript_nryth"]
 script/source = "extends Node3D
@@ -855,6 +856,10 @@ transform = Transform3D(0.96729434, 0, -0.25365666, 0, 1, 0, 0.25365666, 0, 0.96
 
 [node name="Signpanel" parent="." instance=ExtResource("36_3bjve")]
 transform = Transform3D(0.10425076, -0.99455106, 0, 0.99455106, 0.10425076, 0, 0, 0, 1, 10.857018, 0.9971701, -1.1299381)
+
+[node name="TransitionTrigger" parent="." instance=ExtResource("37_3bjve")]
+transform = Transform3D(2.67, 0, 0, 0, 2.67, 0, 0, 0, 2.67, 22.838217, 6.7430663, -4.799294)
+target_scene = "res://scenes/levels/levelend.tscn"
 
 [editable path="GLeNNSet"]
 [editable path="GLeNNSet/Node3D/GLeNN"]
