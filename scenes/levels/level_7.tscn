@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://51uvs5ywgj60"]
+[gd_scene load_steps=48 format=3 uid="uid://51uvs5ywgj60"]
 
 [ext_resource type="Material" uid="uid://dl7fbxot1sjwy" path="res://textures/mat/floor.tres" id="1_bvftm"]
 [ext_resource type="PackedScene" uid="uid://bbv4l13q3bvuv" path="res://parts/player.tscn" id="1_pafwe"]
@@ -37,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://chwwd25ppdp6e" path="res://parts/portalpanel.tscn" id="35_4qlpv"]
 [ext_resource type="PackedScene" uid="uid://bphb32pm8vlsr" path="res://parts/signpanel.tscn" id="36_3bjve"]
 [ext_resource type="PackedScene" uid="uid://dps4pqkb56mxr" path="res://scenes/transition_trigger.tscn" id="37_3bjve"]
+[ext_resource type="PackedScene" uid="uid://dqpcupi3qcvn7" path="res://parts/light.tscn" id="38_48u08"]
 
 [sub_resource type="GDScript" id="GDScript_nryth"]
 script/source = "extends Node3D
@@ -753,7 +754,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.529106)
 transform = Transform3D(0.9999998, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0, 0, 0)
 
 [node name="Cube_002" parent="GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0.62596405, 0.7798515, 0, -0.7798515, 0.62596405, 0, 0.9200001, 0.05000019)
+transform = Transform3D(1, 0, 0, 0, 0.625964, 0.77985144, 0, -0.77985144, 0.625964, 0, 0.9200001, 0.05000019)
 
 [node name="Cube_004" parent="GLeNNSet/Node3D/GLeNN/Cube/Cylinder/Cube_001/Cube_002/Cube_003" index="0"]
 transform = Transform3D(0.99999994, 1.5099582e-07, 0, -1.5099579e-07, 1.0000001, 0, 0, 0, -1, 0, 0.29999924, -0.019999504)
@@ -808,7 +809,7 @@ transform = Transform3D(-5.6698784e-08, 0, 1, 0, 1, 0, -1.297117, 0, -4.371139e-
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1, -4)
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(-0.9963884, 0.08491262, 8.710704e-08, 0.08491262, 0.9963884, -7.423297e-09, -8.742278e-08, 0, -1, -5.450111, 2.1935132, 7.9263144)
+transform = Transform3D(-0.9963884, 0.08491262, 8.710704e-08, 0.08491262, 0.9963884, -7.423297e-09, -8.742278e-08, 0, -1, -3.7215161, 1.6346302, 7.9263144)
 pixel_size = 0.0013
 transparent = false
 double_sided = false
@@ -860,6 +861,21 @@ transform = Transform3D(0.10425076, -0.99455106, 0, 0.99455106, 0.10425076, 0, 0
 [node name="TransitionTrigger" parent="." instance=ExtResource("37_3bjve")]
 transform = Transform3D(2.67, 0, 0, 0, 2.67, 0, 0, 0, 2.67, 22.838217, 6.7430663, -4.799294)
 target_scene = "res://scenes/levels/levelend.tscn"
+
+[node name="light" parent="." instance=ExtResource("38_48u08")]
+transform = Transform3D(0.7124916, 0, 0.70168066, 0, 1, 0, -0.70168066, 0, 0.7124916, -7.2209992, 0, 7.1563926)
+
+[node name="light3" parent="." instance=ExtResource("38_48u08")]
+transform = Transform3D(-0.660919, 0, -0.7504573, 0, 1, 0, 0.7504573, 0, -0.660919, 3.3744812, 0, -6.8417673)
+
+[node name="light4" parent="." instance=ExtResource("38_48u08")]
+transform = Transform3D(-0.660919, 0, -0.7504573, 0, 1, 0, 0.7504573, 0, -0.660919, 18.470158, 0, -7.168606)
+
+[node name="light5" parent="." instance=ExtResource("38_48u08")]
+transform = Transform3D(0.6609189, 0, 0.7504573, 0, 1, 0, -0.7504573, 0, 0.6609189, 5.6773906, 0, 7.883351)
+
+[node name="light2" parent="." instance=ExtResource("38_48u08")]
+transform = Transform3D(-0.0015615136, -0.99774796, 0.067056775, -0.999729, -2.943886e-08, -0.02328056, 0.023228135, -0.067074925, -0.99747753, -0.18468302, 3.0065665, -4.778637)
 
 [editable path="GLeNNSet"]
 [editable path="GLeNNSet/Node3D/GLeNN"]

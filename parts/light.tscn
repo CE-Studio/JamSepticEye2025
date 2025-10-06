@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqpcupi3qcvn7"]
+
+[ext_resource type="PackedScene" uid="uid://c8jdr3bqflypm" path="res://models/light.blend" id="1_u7xv6"]
+
+[node name="light" instance=ExtResource("1_u7xv6")]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Cube_001/Cube_002" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+light_color = Color(0.99999994, 0.7156185, 0.45200205, 1)
+light_energy = 3.545
+spot_range = 15.544
+spot_angle = 42.48
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Cube_004/Cube_005" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -1, 0, 0.99999994, -4.371139e-08, 0, 0, 0)
+light_color = Color(0.99999994, 0.7156185, 0.45200205, 1)
+light_energy = 3.545
+spot_range = 15.544
+spot_angle = 42.48

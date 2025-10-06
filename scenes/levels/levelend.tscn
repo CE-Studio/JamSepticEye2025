@@ -323,6 +323,20 @@ size_flags_vertical = 5
 text = "clarence112, 
 Lasagna Bones"
 
+[node name="Label17" type="Label" parent="Control/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+text = "Programming"
+horizontal_alignment = 2
+
+[node name="Label18" type="Label" parent="Control/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+text = "clarence112, Epsilon,
+Lasagna Bones"
+
 [node name="Label15" type="Label" parent="Control/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3

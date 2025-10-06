@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dl6dp6qe57607"]
+[gd_scene load_steps=35 format=3 uid="uid://dl6dp6qe57607"]
 
 [ext_resource type="PackedScene" uid="uid://bbv4l13q3bvuv" path="res://parts/player.tscn" id="1_ra442"]
 [ext_resource type="Material" uid="uid://dl7fbxot1sjwy" path="res://textures/mat/floor.tres" id="1_tv7cl"]
@@ -23,6 +23,7 @@
 [ext_resource type="Material" uid="uid://d36wg05jdnij" path="res://textures/mat/darkgreyplastic.tres" id="21_1a10c"]
 [ext_resource type="AudioStream" uid="uid://colfq13kgpx3g" path="res://sound/lines/lvl2.mp3" id="22_5niy6"]
 [ext_resource type="Script" uid="uid://bp6vojp8kqeec" path="res://scripts/trigger_animation_player.gd" id="23_wikm6"]
+[ext_resource type="PackedScene" uid="uid://dqpcupi3qcvn7" path="res://parts/light.tscn" id="24_wikm6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_brxtv"]
 size = Vector3(7.565979, 2.230957, 6.3917236)
@@ -529,6 +530,12 @@ metadata/_custom_type_script = "uid://bcn8oydqfqle2"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Trigger2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9968872, 0, 4.2290955)
 shape = SubResource("BoxShape3D_wikm6")
+
+[node name="light" parent="." instance=ExtResource("24_wikm6")]
+transform = Transform3D(-0.44518226, 0, -0.89544, 0, 1, 0, 0.89544, 0, -0.44518226, 14.988049, 0, -5.1700974)
+
+[node name="light2" parent="." instance=ExtResource("24_wikm6")]
+transform = Transform3D(0.8342517, 0, 0.55138373, 0, 1, 0, -0.55138373, 0, 0.8342517, 3.7165384, 2, 12.988611)
 
 [editable path="GLeNNSet"]
 [editable path="GLeNNSet/Node3D/GLeNN"]
